@@ -1,9 +1,12 @@
 import "./App.css";
+import { Navbar } from "./Components/Navbar/Navbar";
+import { AppRoutes } from "./Routes/AppRoutes";
 
 function App() {
   return (
     <div className="App">
-      <h1>Welcome to iShare</h1>
+      <Navbar />
+      <AppRoutes />
     </div>
   );
 }

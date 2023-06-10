@@ -1,0 +1,26 @@
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 0 0 1rem 0;
+  padding: 1rem;
+  background-color: antiquewhite;
+}
+.navStyle {
+  text-decoration: none;
+  background-color: burlywood;
+  color: rgb(59, 10, 49);
+  flex-grow: 1;
+  padding: 0.5rem;
+  font-weight: 400;
+}
+.activeNavStyle {
+  flex-grow: 1;
+  text-decoration: none;
+  padding: 0.5rem;
+  color: burlywood;
+  background-color: rgb(59, 10, 49);
+  font-weight: 700;
+}
