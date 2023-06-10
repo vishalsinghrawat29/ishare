@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { AuthContext } from "../../index";
+import { NavLink } from "react-router-dom";
 const Login = () => {
   const { loginUser } = useContext(AuthContext);
   const [loginData, setLoginData] = useState({ username: "", password: "" });
@@ -29,7 +30,7 @@ const Login = () => {
         backgroundColor: "antiquewhite",
       }}
     >
-      <h1>Login Page</h1>
+      <h1 style={{ padding: "1rem 0" }}>Login Page</h1>
       <form
         onSubmit={(e) => loginHandler(e)}
         style={{
@@ -92,6 +93,9 @@ const Login = () => {
           <button onClick={guestLoginHandler}>Guest Login</button>
         </div>
       </form>
+      <div>
+        <p>Don't have an account? </p> <NavLink to="/signup">SignUp</NavLink>{" "}
+      </div>
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import { createContext, useReducer } from "react";
 import { AuthReducer } from "../Reducer/AuthReducer";
-import { loginService } from "../Services/AuthServices";
+import { loginService, signupService } from "../Services/AuthServices";
 import { useLocation, useNavigate } from "react-router-dom";
 
 export const AuthContext = createContext();
@@ -39,6 +39,26 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  const signupUser = async (signupInput) => {
+    try {
+      const res = await signupService(signupInput);
+      const jsonRes = await res.json();
+      if (res.status === 201) {
+        authDispatch({ type: "setUser", payload: jsonRes?.createdUser });
+        authDispatch({ type: "setToken", payload: jsonRes?.encodedToken });
+        navigate(
+          location?.state?.from?.pathname
+            ? location?.state?.from?.pathname
+            : "/"
+        );
+      } else {
+        console.log(jsonRes?.errors[0]);
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   const logoutUser = () => {
     localStorage.removeItem("user");
     localStorage.removeItem("token");
@@ -49,7 +69,7 @@ export const AuthProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ authState, authDispatch, loginUser, logoutUser }}
+      value={{ authState, authDispatch, loginUser, signupUser, logoutUser }}
     >
       {children}
     </AuthContext.Provider>

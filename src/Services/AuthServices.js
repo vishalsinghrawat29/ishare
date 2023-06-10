@@ -9,4 +9,17 @@ const loginService = async (loginInput) => {
     console.log(err);
   }
 };
-export { loginService };
+
+const signupService = async (signupInput) => {
+  try {
+    const res = await fetch("/api/auth/signup", {
+      method: "POST",
+      body: JSON.stringify(signupInput),
+    });
+    return res;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export { loginService, signupService };

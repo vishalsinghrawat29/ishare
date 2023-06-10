@@ -4,7 +4,6 @@ import { useContext } from "react";
 import { AuthContext } from "../../index";
 const Navbar = () => {
   const { authState } = useContext(AuthContext);
-
   return (
     <nav>
       <NavLink
@@ -12,13 +11,6 @@ const Navbar = () => {
         className={({ isActive }) => (isActive ? "activeNavStyle" : "navStyle")}
       >
         Welcome
-      </NavLink>
-
-      <NavLink
-        to="/home"
-        className={({ isActive }) => (isActive ? "activeNavStyle" : "navStyle")}
-      >
-        Home
       </NavLink>
 
       <NavLink
@@ -33,6 +25,13 @@ const Navbar = () => {
         className={({ isActive }) => (isActive ? "activeNavStyle" : "navStyle")}
       >
         Signup
+      </NavLink>
+
+      <NavLink
+        to="/home"
+        className={({ isActive }) => (isActive ? "activeNavStyle" : "navStyle")}
+      >
+        Home
       </NavLink>
 
       <NavLink
