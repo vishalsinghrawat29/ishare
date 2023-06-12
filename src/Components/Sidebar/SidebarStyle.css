@@ -1,0 +1,22 @@
+.sidebar-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.sidebar-container button {
+  width: 100%;
+  border: none;
+  background-color: blanchedalmond;
+  padding: 0.5rem;
+  border: 1px solid black;
+}
+.sidebar-container .nav {
+  display: block;
+}
+
+.sidebar-container .activeNav {
+  display: block;
+}
+.sidebar-container .activeNav button {
+  background-color: skyblue;
+}
