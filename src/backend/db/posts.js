@@ -10,7 +10,9 @@ export const posts = [
   {
     _id: uuid(),
     content:
-      "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
+      "If you have the morning slump, this is for you. Sometimes, even if we sleep for 10+ hours, we will stay wake up tired. There’s this common belief that basically says that the number of hours you sleep = your energy levels during the day. That’s partially true. There’s a lot more factors than just the number of hours you sleep. Some people can sleep 5 hours per night while feeling way more energised than some people who slept 10 hours.",
+    image: "",
+    imageAlt: "",
     likes: {
       likeCount: 0,
       likedBy: [],
@@ -23,14 +25,32 @@ export const posts = [
   {
     _id: uuid(),
     content:
-      "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
+      "Bard just got a massive update, and it’s pretty impressive. The thing is, both ChatGPT and Bard are amazing at different purposes. ChatGPT crushes Bard at tasks like coding, mathematics and everything that requires deep reasoning. Especially since GPT-4. On the other hand, I found Bard to be way more useful for daily tasks that requires today’s informations, such as traveling tips, finding new places, searching the internet, etc. At the end of the day, the smartest thing to do is to use both of them for different usages.",
+    image: "",
+    imageAlt: "",
     likes: {
       likeCount: 0,
       likedBy: [],
       dislikedBy: [],
     },
     username: "shubhamsoni",
-    createdAt: formatDate(),
+    createdAt: "2022-01-10",
+    updatedAt: formatDate(),
+  },
+  {
+    _id: uuid(),
+    content:
+      "Don't hate errors and bugs. They're not your enemies. It's a part of your programming journey. See errors and bugs as a sign that you're pushing your boundaries. It shows growth.",
+    image:
+      "https://res.cloudinary.com/dogvmq3s7/image/upload/v1686580986/gttovlzh4fee8txsvdeh.jpg",
+    imageAlt: "cld-sample",
+    likes: {
+      likeCount: 0,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "thevishal",
+    createdAt: "2023-06-10",
     updatedAt: formatDate(),
   },
 ];
