@@ -1,9 +1,12 @@
 import { NavLink } from "react-router-dom";
 import "./SidebarStyle.css";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../index";
+import { PostModal } from "../PostModal/PostModal";
 const Sidebar = () => {
   const { authState, logoutUser } = useContext(AuthContext);
+
+  const [showNewPostModal, setShowNewPostModal] = useState(false);
 
   return (
     <div className="sidebar-container">
@@ -37,9 +40,18 @@ const Sidebar = () => {
         <button>Profile</button>
       </NavLink>
 
-      <button>New Post</button>
+      <button onClick={() => setShowNewPostModal(true)}>New Post</button>
 
       <button onClick={() => logoutUser()}>LogOut</button>
+
+      {showNewPostModal ? (
+        <div
+          className="new-post-model-box"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <PostModal setShowNewPostModal={setShowNewPostModal} />
+        </div>
+      ) : null}
     </div>
   );
 };

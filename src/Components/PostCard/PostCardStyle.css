@@ -27,6 +27,23 @@
 .post-card-details > p:first-of-type {
   color: black;
 }
+.post-card-option {
+  margin-left: auto;
+  position: relative;
+}
+.post-card-option > button {
+  background-color: transparent;
+  border: none;
+  width: 1.8rem;
+  height: 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+}
+.post-card-option > button:hover {
+  background-color: rgb(223, 223, 223);
+}
 .post-card-content {
   font-size: 0.9rem;
   line-height: 1.7;

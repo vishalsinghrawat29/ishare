@@ -10,7 +10,7 @@ export const posts = [
   {
     _id: uuid(),
     content:
-      "If you have the morning slump, this is for you. Sometimes, even if we sleep for 10+ hours, we will stay wake up tired. There’s this common belief that basically says that the number of hours you sleep = your energy levels during the day. That’s partially true. There’s a lot more factors than just the number of hours you sleep. Some people can sleep 5 hours per night while feeling way more energised than some people who slept 10 hours.",
+      "Tip of the day: If you are confused between Composition and Inheritance to solve a problem - Always go with Composition pattern. Composition gives more flexibility because it is loosely coupled and Inheritance is tightly coupled.",
     image: "",
     imageAlt: "",
     likes: {
@@ -25,7 +25,7 @@ export const posts = [
   {
     _id: uuid(),
     content:
-      "Bard just got a massive update, and it’s pretty impressive. The thing is, both ChatGPT and Bard are amazing at different purposes. ChatGPT crushes Bard at tasks like coding, mathematics and everything that requires deep reasoning. Especially since GPT-4. On the other hand, I found Bard to be way more useful for daily tasks that requires today’s informations, such as traveling tips, finding new places, searching the internet, etc. At the end of the day, the smartest thing to do is to use both of them for different usages.",
+      "Good morning, world! ☀️ Starting the day with a cup of coffee and a heart full of gratitude. There's something magical about the quiet moments before the chaos begins. Embrace the day, chase your dreams, and let positivity guide you. Remember, every day is a chance for a fresh start! ✨❤️",
     image: "",
     imageAlt: "",
     likes: {
@@ -35,6 +35,21 @@ export const posts = [
     },
     username: "shubhamsoni",
     createdAt: "2022-01-10",
+    updatedAt: formatDate(),
+  },
+  {
+    _id: uuid(),
+    content:
+      "For those wondering how to write, start to write. And think. Watch how you think. Watch how things are. Connect the dots and you will get a point of view to share. Don't try to impress, try to present - put forward things.",
+    image: "",
+    imageAlt: "",
+    likes: {
+      likeCount: 0,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "adarshbalika",
+    createdAt: "2022-11-10",
     updatedAt: formatDate(),
   },
   {

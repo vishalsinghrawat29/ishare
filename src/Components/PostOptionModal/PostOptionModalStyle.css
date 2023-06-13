@@ -1,0 +1,25 @@
+.post-option-container {
+  position: absolute;
+  top: 1.8rem;
+  right: 1rem;
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  background-color: #f7e6d1;
+  border-radius: 0.3rem;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+.post-option-container > button {
+  background-color: transparent;
+  border: none;
+  font-size: 0.9rem;
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+}
+.post-option-container > button:hover {
+  background-color: #ebcfad;
+}

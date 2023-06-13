@@ -1,4 +1,4 @@
-import { createPostService } from "../Services/PostServices";
+import { createPostService, editPostService } from "../Services/PostServices";
 const createPost = async ({
   input,
   image,
@@ -24,4 +24,23 @@ const createPost = async ({
   }
 };
 
-export { createPost };
+const editPost = async ({
+  token,
+  image,
+  imageAlt,
+  post,
+  input,
+  dataDispatch,
+}) => {
+  try {
+    const res = await editPostService({ token, image, imageAlt, post, input });
+    const jsonRes = await res.json();
+    if (res.status === 201) {
+      dataDispatch({ type: "setPosts", payload: jsonRes?.posts });
+    }
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export { createPost, editPost };

@@ -22,4 +22,36 @@ const createPostService = async ({ input, image, imageAlt, token, user }) => {
   }
 };
 
-export { getAllPostsService, createPostService };
+const editPostService = async ({ token, image, imageAlt, post, input }) => {
+  try {
+    const res = await fetch(`/api/posts/edit/${post._id}`, {
+      method: "POST",
+      body: JSON.stringify({
+        postData: { content: input, image, imageAlt },
+      }),
+      headers: { authorization: token },
+    });
+    return res;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+const deletePostService = async ({ _id, token }) => {
+  try {
+    const res = await fetch(`/api/posts/like/${_id}`, {
+      method: "POST",
+      headers: { authorization: token },
+    });
+    return res;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export {
+  getAllPostsService,
+  createPostService,
+  editPostService,
+  deletePostService,
+};

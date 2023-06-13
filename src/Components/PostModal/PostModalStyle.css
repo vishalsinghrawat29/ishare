@@ -1,49 +1,51 @@
-.new-post-container {
-  border: 1px solid gray;
+.post-modal-container {
   border-radius: 0.5rem;
   display: flex;
   align-items: flex-start;
+  width: 58%;
+  margin: 0 auto;
   gap: 0.5rem;
   padding: 0.5rem;
   background-color: white;
 }
-.new-post-form {
+.post-modal-form {
   flex-grow: 1;
 }
-.new-post-form > textarea {
+.post-modal-form > textarea {
   width: 100%;
   font-size: 0.9rem;
   line-height: 1.8;
   background-color: transparent;
   font-family: "Open Sans", sans-serif;
-  min-height: 2rem;
+  min-height: 5rem;
   resize: none;
-  overflow: hidden;
   border: none;
 }
-.new-post-form > textarea:focus {
+.post-modal-form > textarea:focus {
   outline: none;
 }
 
-.new-post-btn-container {
+.post-modal-btn-container {
+  width: fit-content;
+  margin-left: auto;
   display: flex;
   align-items: center;
   justify-content: flex-end;
   gap: 1rem;
 }
-.new-post-img-label {
+.post-modal-img-label {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.image-upload-icon {
+.post-modal-image-upload-icon {
   font-size: 1.3rem;
   color: gray;
 }
-.new-post-img-input {
+.post-modal-img-input {
   display: none;
 }
-.new-post-btn-container > button {
+.post-modal-btn-container > button {
   border: none;
   background-color: black;
   color: white;
@@ -51,26 +53,31 @@
   padding: 0.4rem 2rem;
   border-radius: 0.25rem;
 }
-
-.new-post-btn-container > button[disabled] {
+.post-modal-btn-container > button:first-of-type {
+  border: 1px solid black;
+  background-color: transparent;
+  color: black;
+}
+.post-modal-btn-container > button[disabled] {
   cursor: not-allowed;
   opacity: 0.5;
 }
-.new-post-img-display {
+.post-modal-img-display {
   position: relative;
   height: 300px;
   border-radius: 0.5rem;
   margin: 0.25rem 0;
 }
-.new-post-img-display > img {
+.post-modal-img-display > img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 0.5rem;
 }
 
-.new-post-img-display > button {
+.post-modal-img-display > button {
   position: absolute;
   top: 0.5rem;
   right: 0.5rem;
+  width: 5rem;
 }
