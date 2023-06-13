@@ -39,8 +39,8 @@ const editPostService = async ({ token, image, imageAlt, post, input }) => {
 
 const deletePostService = async ({ _id, token }) => {
   try {
-    const res = await fetch(`/api/posts/like/${_id}`, {
-      method: "POST",
+    const res = await fetch(`/api/posts/${_id}`, {
+      method: "DELETE",
       headers: { authorization: token },
     });
     return res;
