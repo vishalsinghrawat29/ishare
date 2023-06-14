@@ -49,9 +49,35 @@ const deletePostService = async ({ _id, token }) => {
   }
 };
 
+const likePostService = async ({ _id, token }) => {
+  try {
+    const res = await fetch(`/api/posts/like/${_id}`, {
+      method: "POST",
+      headers: { authorization: token },
+    });
+    return res;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+const dislikePostService = async ({ _id, token }) => {
+  try {
+    const res = await fetch(`/api/posts/dislike/${_id}`, {
+      method: "POST",
+      headers: { authorization: token },
+    });
+    return res;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
 export {
   getAllPostsService,
   createPostService,
   editPostService,
   deletePostService,
+  likePostService,
+  dislikePostService,
 };

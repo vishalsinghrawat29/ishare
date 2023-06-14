@@ -3,12 +3,29 @@ import { DataContext } from "../../Contexts/DataContext";
 import { UserAvatar } from "../UserAvatar/UserAvatar";
 import "./PostCardStyle.css";
 import { GetPostDate } from "../../Utils/GetPostDate";
-import { BsThreeDots } from "react-icons/bs";
+import { BsThreeDots, BsFillHeartFill } from "react-icons/bs";
+import {
+  MdMoreHoriz,
+  MdFavorite,
+  MdFavoriteBorder,
+  MdBookmarkBorder,
+  MdBookmark,
+  MdShare,
+} from "react-icons/md";
 import { PostOptionModal } from "../PostOptionModal/PostOptionModal";
+import { LikeByLoggedUser } from "../../Utils/LikeByLoggedUser";
+import { AuthContext } from "../../index";
+import { dislikePost, likePost } from "../../Utils/PostUtils";
 
 const PostCard = ({ post, showOptions, handleShowOptions }) => {
+  const { _id } = post;
+  const {
+    authState: { user, token },
+  } = useContext(AuthContext);
+
   const {
     dataState: { users },
+    dataDispatch,
   } = useContext(DataContext);
 
   const currentUser = users?.find(
@@ -54,6 +71,38 @@ const PostCard = ({ post, showOptions, handleShowOptions }) => {
             alt={post?.imageAlt}
           />
         ) : null}
+        <div className="post-card-btn-container">
+          <div className="post-card-btn-box">
+            <button
+              className="post-card-btn"
+              onClick={() =>
+                LikeByLoggedUser(post, user)
+                  ? dislikePost({ _id, token, dataDispatch })
+                  : likePost({ _id, token, dataDispatch })
+              }
+            >
+              {LikeByLoggedUser(post, user) ? (
+                <MdFavorite
+                  className="post-card-btn-icon"
+                  style={{ color: "red" }}
+                />
+              ) : (
+                <MdFavoriteBorder className="post-card-btn-icon" />
+              )}
+            </button>
+
+            {post?.likes?.likeCount > 0 && (
+              <span>{post?.likes?.likeCount}</span>
+            )}
+          </div>
+
+          <button className="post-card-btn">
+            <MdBookmarkBorder className="post-card-btn-icon" />
+          </button>
+          <button className="post-card-btn">
+            <MdShare className="post-card-btn-icon" />
+          </button>
+        </div>
       </div>
     </div>
   );

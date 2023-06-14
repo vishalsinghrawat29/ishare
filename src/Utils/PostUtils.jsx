@@ -1,7 +1,9 @@
 import {
   createPostService,
   deletePostService,
+  dislikePostService,
   editPostService,
+  likePostService,
 } from "../Services/PostServices";
 const createPost = async ({
   input,
@@ -59,4 +61,28 @@ const deletePost = async ({ _id, token, dataDispatch }) => {
   }
 };
 
-export { createPost, editPost, deletePost };
+const likePost = async ({ _id, token, dataDispatch }) => {
+  try {
+    const res = await likePostService({ _id, token });
+    const jsonRes = await res.json();
+    if (res.status === 201) {
+      dataDispatch({ type: "setPosts", payload: jsonRes?.posts });
+    }
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+const dislikePost = async ({ _id, token, dataDispatch }) => {
+  try {
+    const res = await dislikePostService({ _id, token });
+    const jsonRes = await res.json();
+    if (res.status === 201) {
+      dataDispatch({ type: "setPosts", payload: jsonRes?.posts });
+    }
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export { createPost, editPost, deletePost, likePost, dislikePost };

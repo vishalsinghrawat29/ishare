@@ -54,3 +54,35 @@
   object-fit: cover;
   border-radius: 0.5rem;
 }
+.post-card-btn-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+.post-card-btn-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.05rem;
+}
+.post-card-btn {
+  border: none;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem;
+  border-radius: 100%;
+}
+.post-card-btn-box span {
+  font-size: 0.9rem;
+  color: black;
+}
+.post-card-btn:hover {
+  background-color: rgb(223, 223, 223);
+}
+.post-card-btn-icon {
+  font-size: 1rem;
+}
