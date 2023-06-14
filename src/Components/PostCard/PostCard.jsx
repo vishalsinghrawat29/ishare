@@ -17,6 +17,8 @@ import { AuthContext } from "../../index";
 import { dislikePost, likePost } from "../../Utils/PostUtils";
 import { PostInBookmarks } from "../../Utils/PostInBookmarks";
 import { addBookmark, removeBookmark } from "../../Utils/UserUtils";
+import { sharePost } from "../../Utils/SharePost";
+import { useNavigate } from "react-router-dom";
 
 const PostCard = ({ post, showOptions, handleShowOptions }) => {
   const { _id } = post;
@@ -37,8 +39,14 @@ const PostCard = ({ post, showOptions, handleShowOptions }) => {
 
   const isShowOption = showOptions === post._id;
 
+  const navigate = useNavigate();
+
   return (
-    <div className="post-card-container" id="post-card-container">
+    <div
+      className="post-card-container"
+      id="post-card-container"
+      onClick={() => navigate(`/post/${_id}`)}
+    >
       <div className="post-card-profile">
         <UserAvatar user={currentUser} />
       </div>
@@ -76,11 +84,12 @@ const PostCard = ({ post, showOptions, handleShowOptions }) => {
           <div className="post-card-btn-box">
             <button
               className="post-card-btn"
-              onClick={() =>
+              onClick={(e) => {
                 LikeByLoggedUser(post, user)
                   ? dislikePost({ _id, token, dataDispatch })
-                  : likePost({ _id, token, dataDispatch })
-              }
+                  : likePost({ _id, token, dataDispatch });
+                e.stopPropagation();
+              }}
             >
               {LikeByLoggedUser(post, user) ? (
                 <MdFavorite
@@ -100,11 +109,12 @@ const PostCard = ({ post, showOptions, handleShowOptions }) => {
           <div className="post-card-btn-box">
             <button
               className="post-card-btn"
-              onClick={() =>
+              onClick={(e) => {
                 PostInBookmarks(bookmarks, _id)
                   ? removeBookmark({ _id, token, dataDispatch })
-                  : addBookmark({ _id, token, dataDispatch })
-              }
+                  : addBookmark({ _id, token, dataDispatch });
+                e.stopPropagation();
+              }}
             >
               {PostInBookmarks(bookmarks, _id) ? (
                 <MdBookmark className="post-card-btn-icon" />
@@ -114,7 +124,13 @@ const PostCard = ({ post, showOptions, handleShowOptions }) => {
             </button>
           </div>
 
-          <button className="post-card-btn">
+          <button
+            className="post-card-btn"
+            onClick={(e) => {
+              sharePost(_id);
+              e.stopPropagation();
+            }}
+          >
             <MdShare className="post-card-btn-icon" />
           </button>
         </div>

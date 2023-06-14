@@ -5,6 +5,8 @@ import { DataContext } from "../../index";
 import { PostModal } from "../PostModal/PostModal";
 import { deletePost } from "../../Utils/PostUtils";
 import { useLocation, useNavigate } from "react-router-dom";
+import { PostInBookmarks } from "../../Utils/PostInBookmarks";
+import { removeBookmark } from "../../Utils/UserUtils";
 
 const PostOptionModal = ({ post, handleShowOptions }) => {
   const { _id, username } = post;
@@ -12,7 +14,7 @@ const PostOptionModal = ({ post, handleShowOptions }) => {
     authState: { user, token },
   } = useContext(AuthContext);
   const {
-    dataState: { users },
+    dataState: { users, bookmarks },
     dataDispatch,
   } = useContext(DataContext);
 
@@ -43,6 +45,8 @@ const PostOptionModal = ({ post, handleShowOptions }) => {
             onClick={(e) => {
               e.stopPropagation();
               if (pathname !== "/") navigate("/");
+              if (PostInBookmarks(bookmarks, _id))
+                removeBookmark({ _id, token, dataDispatch });
               deletePost({ _id, token, dataDispatch });
             }}
           >
