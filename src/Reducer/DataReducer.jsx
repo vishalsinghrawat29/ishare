@@ -4,6 +4,8 @@ const DataReducer = (state, action) => {
       return { ...state, users: action.payload };
     case "setPosts":
       return { ...state, posts: action.payload };
+    case "setBookmarks":
+      return { ...state, bookmarks: action.payload };
 
     default:
       return state;

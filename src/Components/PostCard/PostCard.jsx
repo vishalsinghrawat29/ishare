@@ -3,9 +3,8 @@ import { DataContext } from "../../Contexts/DataContext";
 import { UserAvatar } from "../UserAvatar/UserAvatar";
 import "./PostCardStyle.css";
 import { GetPostDate } from "../../Utils/GetPostDate";
-import { BsThreeDots, BsFillHeartFill } from "react-icons/bs";
+import { BsThreeDots } from "react-icons/bs";
 import {
-  MdMoreHoriz,
   MdFavorite,
   MdFavoriteBorder,
   MdBookmarkBorder,
@@ -16,6 +15,8 @@ import { PostOptionModal } from "../PostOptionModal/PostOptionModal";
 import { LikeByLoggedUser } from "../../Utils/LikeByLoggedUser";
 import { AuthContext } from "../../index";
 import { dislikePost, likePost } from "../../Utils/PostUtils";
+import { PostInBookmarks } from "../../Utils/PostInBookmarks";
+import { addBookmark, removeBookmark } from "../../Utils/UserUtils";
 
 const PostCard = ({ post, showOptions, handleShowOptions }) => {
   const { _id } = post;
@@ -24,7 +25,7 @@ const PostCard = ({ post, showOptions, handleShowOptions }) => {
   } = useContext(AuthContext);
 
   const {
-    dataState: { users },
+    dataState: { users, bookmarks },
     dataDispatch,
   } = useContext(DataContext);
 
@@ -96,9 +97,23 @@ const PostCard = ({ post, showOptions, handleShowOptions }) => {
             )}
           </div>
 
-          <button className="post-card-btn">
-            <MdBookmarkBorder className="post-card-btn-icon" />
-          </button>
+          <div className="post-card-btn-box">
+            <button
+              className="post-card-btn"
+              onClick={() =>
+                PostInBookmarks(bookmarks, _id)
+                  ? removeBookmark({ _id, token, dataDispatch })
+                  : addBookmark({ _id, token, dataDispatch })
+              }
+            >
+              {PostInBookmarks(bookmarks, _id) ? (
+                <MdBookmark className="post-card-btn-icon" />
+              ) : (
+                <MdBookmarkBorder className="post-card-btn-icon" />
+              )}
+            </button>
+          </div>
+
           <button className="post-card-btn">
             <MdShare className="post-card-btn-icon" />
           </button>

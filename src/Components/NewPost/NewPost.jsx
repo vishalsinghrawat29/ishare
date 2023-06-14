@@ -13,7 +13,7 @@ const NewPost = () => {
   } = useContext(AuthContext);
 
   const {
-    dataState: { users, posts },
+    dataState: { users, posts, bookmarks },
     dataDispatch,
   } = useContext(DataContext);
 
@@ -75,8 +75,9 @@ const NewPost = () => {
   };
 
   useEffect(() => {
-    console.log(posts);
-  }, [posts]);
+    console.log("posts", posts);
+    console.log("bookmarks", bookmarks);
+  }, [posts, bookmarks]);
 
   return (
     <div className="new-post-container" onClick={(e) => e.stopPropagation()}>
