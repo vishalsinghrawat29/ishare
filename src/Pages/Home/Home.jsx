@@ -4,6 +4,7 @@ import { Sidebar } from "../../Components/Sidebar/Sidebar";
 import "./HomeStyle.css";
 import { DataContext } from "../../index";
 import { PostCard } from "../../Components/PostCard/PostCard";
+import { SuggestedUsers } from "../../Components/SuggestedUsers/SuggestedUsers";
 const Home = () => {
   const {
     dataState: { posts },
@@ -55,7 +56,9 @@ const Home = () => {
           )}
         </div>
       </div>
-      <div className="profile-box"></div>
+      <div className="profile-box">
+        <SuggestedUsers />
+      </div>
     </div>
   );
 };

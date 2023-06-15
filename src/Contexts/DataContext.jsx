@@ -24,6 +24,7 @@ export const DataProvider = ({ children }) => {
   };
   const [dataState, dataDispatch] = useReducer(DataReducer, initialDataState);
   const [isPostsLoading, setPostsLoading] = useState(true);
+  const [isUsersLoading, setUsersLoading] = useState(true);
 
   const getAllUsers = async () => {
     try {
@@ -34,6 +35,8 @@ export const DataProvider = ({ children }) => {
       }
     } catch (err) {
       console.log(err);
+    } finally {
+      setUsersLoading(false);
     }
   };
 
@@ -61,7 +64,9 @@ export const DataProvider = ({ children }) => {
   }, [token]);
 
   return (
-    <DataContext.Provider value={{ dataState, dataDispatch, isPostsLoading }}>
+    <DataContext.Provider
+      value={{ dataState, dataDispatch, isPostsLoading, isUsersLoading }}
+    >
       {children}
     </DataContext.Provider>
   );
