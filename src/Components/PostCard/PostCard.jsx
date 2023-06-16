@@ -45,7 +45,11 @@ const PostCard = ({ post, showOptions, handleShowOptions }) => {
     <div
       className="post-card-container"
       id="post-card-container"
-      onClick={() => navigate(`/post/${_id}`)}
+      onClick={(e) => {
+        e.stopPropagation();
+
+        navigate(`/post/${_id}`);
+      }}
     >
       <div className="post-card-profile">
         <UserAvatar user={currentUser} />
@@ -85,10 +89,10 @@ const PostCard = ({ post, showOptions, handleShowOptions }) => {
             <button
               className="post-card-btn"
               onClick={(e) => {
+                e.stopPropagation();
                 LikeByLoggedUser(post, user)
                   ? dislikePost({ _id, token, dataDispatch })
                   : likePost({ _id, token, dataDispatch });
-                e.stopPropagation();
               }}
             >
               {LikeByLoggedUser(post, user) ? (
@@ -110,10 +114,10 @@ const PostCard = ({ post, showOptions, handleShowOptions }) => {
             <button
               className="post-card-btn"
               onClick={(e) => {
+                e.stopPropagation();
                 PostInBookmarks(bookmarks, _id)
                   ? removeBookmark({ _id, token, dataDispatch })
                   : addBookmark({ _id, token, dataDispatch });
-                e.stopPropagation();
               }}
             >
               {PostInBookmarks(bookmarks, _id) ? (
@@ -127,8 +131,8 @@ const PostCard = ({ post, showOptions, handleShowOptions }) => {
           <button
             className="post-card-btn"
             onClick={(e) => {
-              sharePost(_id);
               e.stopPropagation();
+              sharePost(_id);
             }}
           >
             <MdShare className="post-card-btn-icon" />

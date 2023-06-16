@@ -52,7 +52,7 @@ const PostOptionModal = ({ post, handleShowOptions }) => {
           <button
             onClick={(e) => {
               e.stopPropagation();
-              if (pathname !== "/") navigate("/");
+              pathname ? navigate(`${pathname}`) : navigate(`/home`);
               if (PostInBookmarks(bookmarks, _id))
                 removeBookmark({ _id, token, dataDispatch });
               deletePost({ _id, token, dataDispatch });
@@ -87,7 +87,14 @@ const PostOptionModal = ({ post, handleShowOptions }) => {
         </>
       )}
       {showNewPostModal ? (
-        <div className="new-post-model-box">
+        <div
+          className="new-post-model-box"
+          onClick={(e) => {
+            e.stopPropagation();
+            setShowNewPostModal(false);
+            post && handleShowOptions(post?._id);
+          }}
+        >
           <PostModal
             post={post}
             handleShowOptions={handleShowOptions}

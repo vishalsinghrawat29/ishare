@@ -8,7 +8,6 @@ import { createPost, editPost } from "../../Utils/PostUtils";
 import "./PostModalStyle.css";
 
 const PostModal = ({ post, setShowNewPostModal, handleShowOptions }) => {
-  console.log(post);
   const {
     authState: { user, token },
   } = useContext(AuthContext);
@@ -125,7 +124,14 @@ const PostModal = ({ post, setShowNewPostModal, handleShowOptions }) => {
               src={image ? URL.createObjectURL(image) : input?.image}
               alt="post-modal-img"
             />
-            <button onClick={resetImage}>Close</button>
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                resetImage();
+              }}
+            >
+              Close
+            </button>
           </div>
         ) : null}
 
@@ -148,7 +154,8 @@ const PostModal = ({ post, setShowNewPostModal, handleShowOptions }) => {
             }}
           />
           <button
-            onClick={() => {
+            onClick={(e) => {
+              e.stopPropagation();
               setShowNewPostModal(false);
               post && handleShowOptions(post?._id);
             }}

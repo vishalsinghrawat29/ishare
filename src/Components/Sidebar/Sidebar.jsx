@@ -47,7 +47,10 @@ const Sidebar = () => {
       {showNewPostModal ? (
         <div
           className="new-post-model-box"
-          onClick={(e) => e.stopPropagation()}
+          onClick={(e) => {
+            e.stopPropagation();
+            setShowNewPostModal(false);
+          }}
         >
           <PostModal setShowNewPostModal={setShowNewPostModal} />
         </div>
