@@ -21,6 +21,7 @@ export const DataProvider = ({ children }) => {
     users: [],
     posts: [],
     bookmarks: [],
+    activeFilter: "Latest",
   };
   const [dataState, dataDispatch] = useReducer(DataReducer, initialDataState);
   const [isPostsLoading, setPostsLoading] = useState(true);

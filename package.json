@@ -41,7 +41,7 @@
     ]
   },
   "devDependencies": {
-    "miragejs": "^0.1.47",
-    "@babel/plugin-proposal-private-property-in-object": "^7.12.10"
+    "@babel/plugin-proposal-private-property-in-object": "^7.12.10",
+    "miragejs": "^0.1.47"
   }
 }

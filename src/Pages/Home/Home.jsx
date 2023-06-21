@@ -2,12 +2,18 @@ import { useContext, useEffect, useState } from "react";
 import { NewPost } from "../../Components/NewPost/NewPost";
 import { Sidebar } from "../../Components/Sidebar/Sidebar";
 import "./HomeStyle.css";
-import { DataContext } from "../../index";
+import { AuthContext, DataContext } from "../../index";
 import { PostCard } from "../../Components/PostCard/PostCard";
 import { SuggestedUsers } from "../../Components/SuggestedUsers/SuggestedUsers";
+import { FilterBar } from "../../Components/FilterBar/FilterBar";
+import { FilterPosts } from "../../Utils/FilterPosts";
 const Home = () => {
   const {
-    dataState: { posts },
+    authState: { user },
+  } = useContext(AuthContext);
+
+  const {
+    dataState: { users, posts, activeFilter },
     isPostsLoading,
   } = useContext(DataContext);
 
@@ -29,21 +35,38 @@ const Home = () => {
     };
   }, []);
 
+  const loggedInUser = users.find(
+    (dbUser) => dbUser.username === user.username
+  );
+
+  const followingUsers = loggedInUser?.following;
+
+  const postOfFollowingUsers = posts?.filter(
+    (post) =>
+      followingUsers?.some(
+        (followingUser) => followingUser.username === post.username
+      ) || user.username === post.username
+  );
+
+  const FilteredPosts = FilterPosts(postOfFollowingUsers, activeFilter);
+
   return (
     <div className="home-page-container">
       <div className="sidebar-box">
         <Sidebar />
       </div>
       <div className="body-box">
+        <FilterBar />
         <h1>Home</h1>
+
         <div>
           <NewPost />
         </div>
         <div className="post-cards-box">
           {isPostsLoading ? (
             <p>Loading...</p>
-          ) : posts?.length ? (
-            posts.map((post) => (
+          ) : FilteredPosts?.length ? (
+            FilteredPosts.map((post) => (
               <PostCard
                 post={post}
                 key={post._id}

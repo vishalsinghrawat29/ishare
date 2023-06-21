@@ -6,7 +6,8 @@ const DataReducer = (state, action) => {
       return { ...state, posts: action.payload };
     case "setBookmarks":
       return { ...state, bookmarks: action.payload };
-
+    case "setActiveFilter":
+      return { ...state, activeFilter: action.payload };
     default:
       return state;
   }
