@@ -6,6 +6,7 @@ import { Sidebar } from "../../Components/Sidebar/Sidebar";
 import { ProfileDetails } from "../../Components/ProfileDetails/ProfileDetails";
 import { MdKeyboardBackspace } from "react-icons/md";
 import { SuggestedUsers } from "../../Components/SuggestedUsers/SuggestedUsers";
+import { SearchBar } from "../../Components/SearchBar/SearchBar";
 
 const UserProfile = () => {
   const { username } = useParams();
@@ -74,6 +75,7 @@ const UserProfile = () => {
         )}
       </div>
       <div className="profile-box">
+        <SearchBar />
         <SuggestedUsers />
       </div>
     </div>

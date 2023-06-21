@@ -7,6 +7,7 @@ import { PostCard } from "../../Components/PostCard/PostCard";
 import { SuggestedUsers } from "../../Components/SuggestedUsers/SuggestedUsers";
 import { FilterBar } from "../../Components/FilterBar/FilterBar";
 import { FilterPosts } from "../../Utils/FilterPosts";
+import { SearchBar } from "../../Components/SearchBar/SearchBar";
 const Home = () => {
   const {
     authState: { user },
@@ -80,6 +81,7 @@ const Home = () => {
         </div>
       </div>
       <div className="profile-box">
+        <SearchBar />
         <SuggestedUsers />
       </div>
     </div>
