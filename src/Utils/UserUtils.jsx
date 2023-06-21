@@ -4,6 +4,7 @@ import {
   getBookmarkService,
   removeBookmarkService,
   unfollowUserService,
+  updateProfileService,
 } from "../Services/UserServices";
 
 const getBookmarks = async (token, dataDispatch) => {
@@ -81,4 +82,38 @@ const unfollowUser = async ({ followUserId, token, dataDispatch, users }) => {
   }
 };
 
-export { getBookmarks, addBookmark, removeBookmark, followUser, unfollowUser };
+const updateProfile = async ({
+  editInput,
+  token,
+  authDispatch,
+  dataDispatch,
+  users,
+}) => {
+  console.log(editInput);
+  try {
+    const res = await updateProfileService({ editInput, token });
+    const jsonRes = await res.json();
+    if (res.status === 201) {
+      localStorage.setItem("user", JSON.stringify(jsonRes?.user));
+      authDispatch({ type: "setUser", payload: jsonRes?.user });
+      const newUsers = users.map((user) => {
+        if (user?.username === jsonRes?.user?.username) {
+          return jsonRes?.user;
+        }
+        return user;
+      });
+      dataDispatch({ type: "setUsers", payload: newUsers });
+    }
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export {
+  getBookmarks,
+  addBookmark,
+  removeBookmark,
+  followUser,
+  unfollowUser,
+  updateProfile,
+};

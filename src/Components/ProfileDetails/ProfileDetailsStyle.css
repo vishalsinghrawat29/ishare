@@ -1,7 +1,120 @@
 .profile-container {
-  background-color: antiquewhite;
+  background-color: white;
+  border-radius: 0.75rem;
 }
-.profile-container > span > img {
-  width: 12rem;
-  height: 12rem;
+.profile-avtaar {
+  position: relative;
+  min-height: 15rem;
+}
+.profile-background {
+  width: 100%;
+  height: 10rem;
+  object-fit: cover;
+  border-radius: 0.75rem 0.75rem 0 0;
+}
+.profile-img > span > img {
+  width: 10rem;
+  height: 10rem;
+  border: 0.3rem solid white;
+}
+.profile-img > span > span {
+  width: 10rem;
+  height: 10rem;
+  border: 0.3rem solid white;
+  font-size: 5rem;
+}
+.profile-img {
+  position: absolute;
+  top: 5rem;
+  left: 1rem;
+  right: 1rem;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+.profile-btn {
+  margin-bottom: 2rem;
+}
+.profile-btn button {
+  border: none;
+  background-color: blanchedalmond;
+  padding: 0.5rem 2rem;
+  font-size: 0.9rem;
+  border-radius: 0.5rem;
+}
+.profile-body {
+  margin: 0.5rem 1rem 1rem;
+}
+.profile-body p {
+  font-size: 1rem;
+  line-height: 1.3;
+}
+.profile-name {
+  font-weight: 600;
+}
+.profile-username {
+  color: gray;
+}
+.profile-bio,
+.profile-website {
+  padding: 0.25rem 0;
+}
+.profile-website {
+  color: rgb(67, 130, 226);
+  text-decoration: none;
+}
+.profile-follow-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem 0;
+}
+.profile-follow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  cursor: pointer;
+}
+
+.profile-follow span:last-of-type {
+  color: gray;
+}
+.profile-follow:hover,
+.profile-follow:hover span:last-of-type {
+  color: black;
+  font-weight: 500;
+}
+.edit-modal-wrapper,
+.follow-list-modal-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(50, 40, 49, 0.311);
+}
+.profile-background {
+  position: relative;
+}
+.profile-background-icon-box {
+  position: absolute;
+  bottom: 0.5rem;
+  right: 0.5rem;
+  width: 2rem;
+  height: 2rem;
+  padding: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  background-color: rgb(255, 255, 255);
+}
+.profile-background-camera-icon {
+  font-size: 0.9rem;
+  color: rgb(73, 203, 255);
 }

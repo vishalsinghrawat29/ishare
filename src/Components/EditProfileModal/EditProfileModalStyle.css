@@ -1,0 +1,97 @@
+.edit-profile-modal {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  width: 35%;
+}
+.edit-profile-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+.edit-profile-head h1 {
+  font-size: 1.2rem;
+  line-height: 1;
+  font-weight: 700;
+}
+.edit-profile-head button {
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: transparent;
+}
+.edit-profile-user-avtaar > span > img {
+  width: 30%;
+  height: 30%;
+}
+.edit-profile-user-avtaar {
+  position: relative;
+}
+.edit-profile-camera-icon {
+  font-size: 1.6rem;
+  position: absolute;
+  border: 1px solid red;
+  top: 80%;
+  right: 38%;
+  color: white;
+  background-color: rgb(242, 49, 152);
+  padding: 0.2rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+.edit-porfile-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  /* border: 1px solid pink; */
+}
+.edit-profile-field {
+  /* border: 1px solid blue; */
+}
+.edit-profile-field label {
+  display: block;
+  padding: 0.25rem 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+.edit-profile-field input {
+  display: block;
+  width: 100%;
+  padding: 0.25rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  font-weight: 400;
+  border: 1px solid rgb(173, 173, 173);
+  outline: none;
+  border-radius: 0.25rem;
+}
+.edit-profile-image {
+  display: none;
+}
+.edit-porfile-form > button {
+  width: 30%;
+  padding: 0.5rem;
+  font-size: 0.9rem;
+  line-height: 1;
+  border: none;
+  background-color: black;
+  color: white;
+  border-radius: 0.25rem;
+  margin: 0.75rem auto;
+}
+.choose-avtaar-modal-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(50, 40, 49, 0.311);
+}

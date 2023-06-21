@@ -10,7 +10,7 @@
   display: block;
   border-radius: 100%;
 }
-.user-avatar-container span {
+.user-avatar-container > span {
   width: 2rem;
   height: 2rem;
   font-size: 1.2rem;

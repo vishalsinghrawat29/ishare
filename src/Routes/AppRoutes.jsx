@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { PrivateRoute } from "./PrivateRoute";
 import { Welcome } from "../Pages/Welcome/Welcome";
 import { Explore } from "../Pages/Explore/Explore";
@@ -15,11 +15,8 @@ import { AuthContext } from "../index";
 
 const AppRoutes = () => {
   const { authState } = useContext(AuthContext);
-  const location = useLocation();
 
-  const navigatePath = location?.state?.from?.pathname
-    ? location?.state?.from?.pathname
-    : "/home";
+  const navigatePath = "/home";
 
   return (
     <div>
