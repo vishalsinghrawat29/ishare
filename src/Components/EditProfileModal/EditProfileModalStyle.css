@@ -23,24 +23,55 @@
   border: none;
   background-color: transparent;
 }
-.edit-profile-user-avtaar > span > img {
-  width: 30%;
-  height: 30%;
-}
-.edit-profile-user-avtaar {
+.edit-images-coantiner {
   position: relative;
 }
-.edit-profile-camera-icon {
-  font-size: 1.6rem;
+.edit-profile-img-container {
   position: absolute;
-  border: 1px solid red;
-  top: 80%;
-  right: 38%;
-  color: white;
-  background-color: rgb(242, 49, 152);
-  padding: 0.2rem;
-  border-radius: 0.25rem;
+  top: 2rem;
+  left: 1rem;
+  width: 25%;
+}
+.edit-profile-background-container {
+  margin-bottom: 2.5rem;
+}
+.edit-profile-user-background > span > img {
+  height: 5.8rem;
+  object-fit: cover;
+}
+.edit-profile-user-avtaar > span {
+  display: block;
+}
+.edit-profile-user-avtaar > span > img {
+  width: 7rem;
+  height: 7rem;
+  border: 0.25rem solid white;
+}
+
+.edit-profile-user-avtaar,
+.edit-profile-user-background {
+  position: relative;
+}
+.edit-profile-icon-container {
+  border-radius: 100%;
+  position: absolute;
+  width: 1.8rem;
+  height: 1.8rem;
+
+  right: 1rem;
+  bottom: 5%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.504);
+  padding: 0.4rem;
   cursor: pointer;
+}
+
+.edit-profile-camera-icon {
+  font-size: 1.5rem;
+  color: white;
 }
 
 .edit-porfile-form {
@@ -49,9 +80,7 @@
   gap: 0.5rem;
   /* border: 1px solid pink; */
 }
-.edit-profile-field {
-  /* border: 1px solid blue; */
-}
+
 .edit-profile-field label {
   display: block;
   padding: 0.25rem 0;
@@ -69,7 +98,8 @@
   outline: none;
   border-radius: 0.25rem;
 }
-.edit-profile-image {
+.edit-profile-image,
+.edit-profile-background {
   display: none;
 }
 .edit-porfile-form > button {
@@ -82,16 +112,4 @@
   color: white;
   border-radius: 0.25rem;
   margin: 0.75rem auto;
-}
-.choose-avtaar-modal-wrapper {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 3;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: rgba(50, 40, 49, 0.311);
 }
