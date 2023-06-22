@@ -1,0 +1,53 @@
+.profile-img-selector-wrapper {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+  background-color: rgba(50, 40, 49, 0.311);
+}
+.profile-img-selector-container {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+.profile-selector-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.25rem 0;
+  margin-bottom: 1rem;
+}
+.profile-selector-head > span {
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1;
+}
+.profile-selector-head button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+.profile-img-wrapper {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.profile-selector-img {
+  display: block;
+  width: 3.5rem;
+  flex-basis: 22.5%;
+  border-radius: 100%;
+  cursor: pointer;
+}

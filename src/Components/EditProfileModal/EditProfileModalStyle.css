@@ -113,3 +113,39 @@
   border-radius: 0.25rem;
   margin: 0.75rem auto;
 }
+.avtaar-edit-wrapper {
+  position: relative;
+}
+.avtaar-edit-modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: rgb(223, 223, 223);
+  position: absolute;
+  top: -1.5rem;
+  left: 8rem;
+  font-size: 0.9rem;
+  border-radius: 0.25rem;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+.avtaar-edit-modal > label {
+  display: block;
+  width: 100%;
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+  border-radius: 0.25rem 0.25rem 0 0;
+}
+.avtaar-edit-modal > span {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+  border-radius: 0 0 0.25rem 0.25rem;
+}
+.avtaar-edit-modal > label:hover,
+.avtaar-edit-modal > span:hover {
+  background-color: black;
+  color: white;
+}
