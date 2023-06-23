@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
 *,
 *::after,
 *::before {
@@ -6,6 +6,24 @@
   margin: 0;
   padding: 0;
 }
+:root {
+  --clr-primary: #ff3d00;
+  --clr-text: #09090c;
+  --clr-background: #f5f4ed;
+}
 .App {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Lato", sans-serif;
+}
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
 }
