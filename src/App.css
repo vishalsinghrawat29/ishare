@@ -7,10 +7,17 @@
   padding: 0;
 }
 :root {
-  --clr-primary: #ff3d00;
-  --clr-text: #09090c;
+  --clr-primary: #efbd21;
+  --clr-text: #1b2e35;
   --clr-background: #f5f4ed;
+
+  --fs-xl: clamp(2.25rem, 4vw + 1rem, 5rem);
+  --fs-600: 2rem;
+  --fs-500: 1.5rem;
+  --fs-400: 1rem;
+  --fs-300: 0.9rem;
 }
+
 .App {
   font-family: "Lato", sans-serif;
 }
@@ -26,4 +33,22 @@ button {
   border: none;
   background-color: transparent;
   cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --fs-600: 2.5rem;
+    --fs-500: 1.75rem;
+    --fs-400: 1.125rem;
+    --fs-300: 1rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  :root {
+    --fs-600: 3rem;
+    --fs-500: 2rem;
+    --fs-400: 1.25rem;
+    --fs-300: 1rem;
+  }
 }
