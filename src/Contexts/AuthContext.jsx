@@ -1,4 +1,4 @@
-import { createContext, useReducer } from "react";
+import { createContext, useReducer, useState } from "react";
 import { AuthReducer } from "../Reducer/AuthReducer";
 import { loginService, signupService } from "../Services/AuthServices";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -12,6 +12,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   const [authState, authDispatch] = useReducer(AuthReducer, initialAuthState);
+  const [loader, setLoader] = useState(false);
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -69,7 +70,15 @@ export const AuthProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ authState, authDispatch, loginUser, signupUser, logoutUser }}
+      value={{
+        authState,
+        authDispatch,
+        loginUser,
+        signupUser,
+        logoutUser,
+        loader,
+        setLoader,
+      }}
     >
       {children}
     </AuthContext.Provider>

@@ -16,6 +16,7 @@ export const DataContext = createContext();
 export const DataProvider = ({ children }) => {
   const {
     authState: { token },
+    setLoader,
   } = useContext(AuthContext);
   const initialDataState = {
     users: [],
@@ -56,9 +57,13 @@ export const DataProvider = ({ children }) => {
   };
 
   useEffect(() => {
+    setLoader(true);
     getAllUsers();
     getAllPosts();
-  }, []);
+    setTimeout(() => {
+      setLoader(false);
+    }, 500);
+  }, [setLoader]);
 
   useEffect(() => {
     getBookmarks(token, dataDispatch);
