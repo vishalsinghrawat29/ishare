@@ -8,8 +8,10 @@
 }
 :root {
   --clr-primary: #efbd21;
+  --clr-secondary: #00a6fb;
   --clr-text: #1b2e35;
   --clr-background: #f5f4ed;
+  --clr-border: #c7c6c1;
 
   --fs-xl: clamp(2.25rem, 4vw + 1rem, 5rem);
   --fs-600: 2rem;
@@ -20,6 +22,7 @@
 
 .App {
   font-family: "Lato", sans-serif;
+  color: var(--clr-text);
 }
 .center {
   display: flex;
