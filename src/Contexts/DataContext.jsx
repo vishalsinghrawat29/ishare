@@ -63,7 +63,7 @@ export const DataProvider = ({ children }) => {
     setTimeout(() => {
       setLoader(false);
     }, 500);
-  }, [setLoader]);
+  }, [setLoader, token]);
 
   useEffect(() => {
     getBookmarks(token, dataDispatch);

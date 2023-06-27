@@ -2,7 +2,7 @@ import { createContext, useReducer, useState } from "react";
 import { AuthReducer } from "../Reducer/AuthReducer";
 import { loginService, signupService } from "../Services/AuthServices";
 import { useLocation, useNavigate } from "react-router-dom";
-
+import { toast } from "react-toastify";
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
@@ -26,6 +26,7 @@ export const AuthProvider = ({ children }) => {
         localStorage.setItem("token", JSON.stringify(jsonRes?.encodedToken));
         authDispatch({ type: "setUser", payload: jsonRes?.foundUser });
         authDispatch({ type: "setToken", payload: jsonRes?.encodedToken });
+        toast.success("Login Successfully!");
         navigate(
           location?.state?.from?.pathname
             ? location?.state?.from?.pathname
@@ -33,10 +34,12 @@ export const AuthProvider = ({ children }) => {
         );
       } else {
         console.log(jsonRes?.errors[0]);
+        toast.error(jsonRes?.errors[0]);
       }
     } catch (err) {
       logoutUser();
       console.log(err);
+      toast.error("Please enter valid input!");
     }
   };
 
@@ -47,6 +50,7 @@ export const AuthProvider = ({ children }) => {
       if (res.status === 201) {
         authDispatch({ type: "setUser", payload: jsonRes?.createdUser });
         authDispatch({ type: "setToken", payload: jsonRes?.encodedToken });
+        toast.success("Signup Successfully!");
         navigate(
           location?.state?.from?.pathname
             ? location?.state?.from?.pathname
@@ -54,8 +58,10 @@ export const AuthProvider = ({ children }) => {
         );
       } else {
         console.log(jsonRes?.errors[0]);
+        toast.error(jsonRes.errors[0]);
       }
     } catch (err) {
+      toast.error(err.message);
       console.log(err);
     }
   };
@@ -65,7 +71,7 @@ export const AuthProvider = ({ children }) => {
     localStorage.removeItem("token");
     authDispatch({ type: "setUser", payload: {} });
     authDispatch({ type: "setToken", payload: "" });
-    console.log("you are logout");
+    toast.success("You're logged out!");
   };
 
   return (
