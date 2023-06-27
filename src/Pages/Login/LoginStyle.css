@@ -65,7 +65,7 @@
 }
 .login-field > span {
   position: absolute;
-  top: 1.65rem;
+  top: 1.5rem;
   right: 0.25rem;
   background-color: white;
   display: flex;
@@ -131,6 +131,9 @@
 
   .login-btn > button {
     padding: 0.75rem;
+  }
+  .login-field > span {
+    top: 1.65rem;
   }
 
   .login-link {
