@@ -136,7 +136,11 @@ const Signup = () => {
             >
               {hidePwd?.confirmPwd ? <FaEye /> : <FaEyeSlash />}
             </span>
-            {!pwdMatch ? <div>Password Do Not Match</div> : ""}
+            {!pwdMatch ? (
+              <div className="err-message">Password Do Not Match</div>
+            ) : (
+              ""
+            )}
           </div>
           <div className="login-btn">
             <button type="submit" disabled={!pwdMatch}>

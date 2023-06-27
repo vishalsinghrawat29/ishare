@@ -108,6 +108,11 @@
 .login-link > p > span {
   color: var(--clr-secondary);
 }
+.err-message {
+  color: rgb(255, 0, 55);
+  font-size: var(--fs-300);
+}
+
 @media screen and (min-width: 768px) {
   .login {
     flex-direction: row;

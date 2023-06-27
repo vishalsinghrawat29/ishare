@@ -37,6 +37,10 @@ button {
   background-color: transparent;
   cursor: pointer;
 }
+button[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
 
 @media (min-width: 768px) {
   :root {
