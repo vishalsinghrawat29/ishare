@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { AuthContext } from "../../index";
 import { useNavigate } from "react-router-dom";
-import loginImg from "../../Assets/iShareLogin.jpg";
+import loginImg from "../../Assets/iShareLogin.png";
 import "./LoginStyle.css";
 
 const Login = () => {
