@@ -7,12 +7,10 @@
   margin: 0rem auto;
   color: var(--clr-text);
   padding: 1rem;
-  border: 1px solid blue;
 }
 
 .login-img {
   width: 100%;
-  border: 1px solid red;
 }
 .login-img > img {
   width: 100%;
