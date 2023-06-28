@@ -6,12 +6,17 @@ import { AuthContext } from "./Contexts/AuthContext";
 import { ToastContainer } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
+import { TopBar } from "./Components/Topbar/Topbar";
 
 function App() {
   const { loader } = useContext(AuthContext);
 
   return (
     <div className="App">
+      <div className="topbar-container">
+        <TopBar />
+      </div>
+
       {loader && <Loader />}
       <AppRoutes />
       <ToastContainer

@@ -7,10 +7,12 @@
   padding: 0;
 }
 :root {
-  --clr-primary: #efbd21;
+  --clr-primary: #ffc801;
+  --clr-primary-light: #ffefb5;
   --clr-secondary: #00a6fb;
   --clr-text: #1b2e35;
-  --clr-background: #f5f4ed;
+  --clr-text-light: gray;
+  --clr-background: #fefdf9;
   --clr-border: #c7c6c1;
 
   --fs-xl: clamp(2.25rem, 4vw + 1rem, 5rem);
@@ -18,8 +20,11 @@
   --fs-500: 1.5rem;
   --fs-400: 1rem;
   --fs-300: 0.9rem;
+  --fs-200: 0.8rem;
 }
-
+body {
+  background-color: var(--clr-background);
+}
 .App {
   font-family: "Lato", sans-serif;
   color: var(--clr-text);
@@ -41,13 +46,23 @@ button[disabled] {
   opacity: 0.5;
   cursor: not-allowed;
 }
-
+.topbar-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 8;
+  background-color: white;
+  /* box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); */
+  border-bottom: 1px solid var(--clr-border);
+}
 @media (min-width: 768px) {
   :root {
     --fs-600: 2.5rem;
     --fs-500: 1.75rem;
     --fs-400: 1.125rem;
     --fs-300: 1rem;
+    --fs-200: 0.9rem;
   }
 }
 
@@ -57,5 +72,6 @@ button[disabled] {
     --fs-500: 2rem;
     --fs-400: 1.25rem;
     --fs-300: 1rem;
+    --fs-200: 0.9rem;
   }
 }

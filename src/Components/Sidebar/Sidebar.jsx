@@ -1,48 +1,81 @@
 import { NavLink } from "react-router-dom";
 import "./SidebarStyle.css";
 import { useContext, useState } from "react";
-import { AuthContext } from "../../index";
+import { AuthContext, DataContext } from "../../index";
 import { PostModal } from "../PostModal/PostModal";
+import { FaHome, FaHashtag, FaRegBookmark, FaPlus } from "react-icons/fa";
+import { UserAvatar } from "../UserAvatar/UserAvatar";
+
 const Sidebar = () => {
   const { authState, logoutUser } = useContext(AuthContext);
+  const {
+    dataState: { users },
+  } = useContext(DataContext);
 
   const [showNewPostModal, setShowNewPostModal] = useState(false);
 
-  return (
-    <div className="sidebar-container">
-      <h1>iShare</h1>
+  const currentUser = users.find(
+    (dbUser) => dbUser?.username === authState?.user.username
+  );
 
+  return (
+    <div className="sidebar">
       <NavLink
         to="/home"
         className={({ isActive }) => (isActive ? "activeNav" : "nav")}
       >
-        <button>Home</button>
+        <button className="center">
+          <FaHome className="icon" />
+          <span>Home</span>
+        </button>
       </NavLink>
 
       <NavLink
         to="/explore"
         className={({ isActive }) => (isActive ? "activeNav" : "nav")}
       >
-        <button>Explore</button>
+        <button className="center">
+          <FaHashtag className="icon" />
+          <span>Explore</span>
+        </button>
       </NavLink>
 
       <NavLink
         to="/bookmarks"
         className={({ isActive }) => (isActive ? "activeNav" : "nav")}
       >
-        <button>Bookmarks</button>
+        <button className="center">
+          <FaRegBookmark className="icon" />
+          <span>Bookmarks</span>
+        </button>
       </NavLink>
+
+      <button
+        className="center nav-new-post-btn"
+        onClick={() => setShowNewPostModal(true)}
+      >
+        <FaPlus className="icon" />
+        <span>New Post</span>
+      </button>
+
+      {/* <button className="center nav-btn" onClick={() => logoutUser()}>
+        LogOut
+      </button> */}
 
       <NavLink
-        to={`/profile/${authState?.user?.username}`}
+        to={`/profile/${currentUser?.username}`}
         className={({ isActive }) => (isActive ? "activeNav" : "nav")}
       >
-        <button>Profile</button>
+        <button className="center nav-profile-btn">
+          <UserAvatar user={currentUser} />
+          <span>
+            <p>
+              {currentUser?.firstName} {currentUser?.lastName}
+            </p>
+            <p>@{currentUser?.username}</p>
+          </span>
+        </button>
       </NavLink>
-
-      <button onClick={() => setShowNewPostModal(true)}>New Post</button>
-
-      <button onClick={() => logoutUser()}>LogOut</button>
 
       {showNewPostModal ? (
         <div

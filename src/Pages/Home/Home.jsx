@@ -7,7 +7,6 @@ import { PostCard } from "../../Components/PostCard/PostCard";
 import { SuggestedUsers } from "../../Components/SuggestedUsers/SuggestedUsers";
 import { FilterBar } from "../../Components/FilterBar/FilterBar";
 import { FilterPosts } from "../../Utils/FilterPosts";
-import { SearchBar } from "../../Components/SearchBar/SearchBar";
 const Home = () => {
   const {
     authState: { user },
@@ -57,9 +56,8 @@ const Home = () => {
         <Sidebar />
       </div>
       <div className="body-box">
-        <FilterBar />
         <h1>Home</h1>
-
+        <FilterBar />
         <div>
           <NewPost />
         </div>
@@ -81,7 +79,6 @@ const Home = () => {
         </div>
       </div>
       <div className="profile-box">
-        <SearchBar />
         <SuggestedUsers />
       </div>
     </div>
