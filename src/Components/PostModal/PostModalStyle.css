@@ -21,7 +21,7 @@
   line-height: 1.5;
   background-color: transparent;
   font-family: "Open Sans", sans-serif;
-  min-height: 19ch;
+  min-height: 16ch;
   resize: none;
   border: none;
 }
@@ -103,7 +103,7 @@
   }
 
   .post-modal-form > textarea {
-    min-height: 10ch;
+    min-height: 8.5ch;
   }
   .post-modal-form > textarea:focus {
     outline: none;

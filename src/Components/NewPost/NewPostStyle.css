@@ -17,10 +17,9 @@
   line-height: 1.5;
   background-color: transparent;
   font-family: "Open Sans", sans-serif;
-  min-height: 19ch;
+  min-height: 16.5ch;
   resize: none;
   border: none;
-  /* border: 1px solid green; */
 }
 .new-post-form > textarea:focus {
   outline: none;
@@ -91,6 +90,6 @@
 }
 @media (min-width: 768px) {
   .new-post-form > textarea {
-    min-height: 10ch;
+    min-height: 11ch;
   }
 }
