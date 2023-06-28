@@ -79,7 +79,7 @@
   bottom: 0;
   z-index: 10;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   background-color: rgba(50, 40, 49, 0.311);
 }
@@ -149,15 +149,6 @@
     border-radius: 0.25rem;
   }
   .new-post-model-box {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 10;
-    display: flex;
     align-items: center;
-    justify-content: center;
-    background-color: rgba(50, 40, 49, 0.311);
   }
 }

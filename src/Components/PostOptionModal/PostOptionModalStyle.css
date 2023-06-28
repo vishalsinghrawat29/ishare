@@ -2,24 +2,30 @@
   position: absolute;
   top: 1.8rem;
   right: 1rem;
-  width: 100px;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
   align-items: center;
   justify-content: center;
-  background-color: #f7e6d1;
-  border-radius: 0.3rem;
+  background-color: white;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  min-width: 120px;
+  border: 1px solid var(--clr-border);
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  color: var(--clr-text);
 }
 .post-option-container > button {
   background-color: transparent;
   border: none;
   font-size: 0.9rem;
   width: 100%;
-  padding: 0.5rem;
-  border-radius: 0.3rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  justify-content: flex-start;
+  gap: 0.25rem;
 }
 .post-option-container > button:hover {
-  background-color: #ebcfad;
+  background-color: var(--clr-secondary);
+  color: var(--clr-background);
 }

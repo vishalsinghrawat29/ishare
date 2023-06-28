@@ -11,6 +11,8 @@ import {
   removeBookmark,
   unfollowUser,
 } from "../../Utils/UserUtils";
+import { RiUserFollowLine, RiUserUnfollowLine } from "react-icons/ri";
+import { FaRegEdit, FaRegTrashAlt } from "react-icons/fa";
 
 const PostOptionModal = ({ post, handleShowOptions }) => {
   const { _id, username } = post;
@@ -42,14 +44,17 @@ const PostOptionModal = ({ post, handleShowOptions }) => {
       {username === user?.username ? (
         <>
           <button
+            className="center"
             onClick={(e) => {
               e.stopPropagation();
               setShowNewPostModal(true);
             }}
           >
+            <FaRegEdit className="icon" />
             Edit
           </button>
           <button
+            className="center"
             onClick={(e) => {
               e.stopPropagation();
               pathname ? navigate(`${pathname}`) : navigate(`/home`);
@@ -58,12 +63,14 @@ const PostOptionModal = ({ post, handleShowOptions }) => {
               deletePost({ _id, token, dataDispatch });
             }}
           >
+            <FaRegTrashAlt className="icon" />
             Delete
           </button>
         </>
       ) : (
         <>
           <button
+            className="center"
             onClick={(e) => {
               e.stopPropagation();
               userAlreadyFollowing
@@ -82,7 +89,16 @@ const PostOptionModal = ({ post, handleShowOptions }) => {
               handleShowOptions(post?._id);
             }}
           >
-            {userAlreadyFollowing ? "UnFollow" : "Follow"}
+            {userAlreadyFollowing ? (
+              <>
+                <RiUserUnfollowLine className="icon" />
+                UnFollow
+              </>
+            ) : (
+              <>
+                <RiUserFollowLine className="icon" /> Follow
+              </>
+            )}
           </button>
         </>
       )}

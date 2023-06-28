@@ -32,7 +32,7 @@ const SuggestedUsers = () => {
     <div className="suggested-user-container">
       {suggestedUsersList.length ? (
         <div className="suggested-user-profile-box">
-          <h1>Who to Follow</h1>
+          <h1>Suggested Users</h1>
           {suggestedUsersList.map((user) => (
             <div
               className="suggested-user-profile"

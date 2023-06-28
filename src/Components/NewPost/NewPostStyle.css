@@ -1,6 +1,6 @@
 .new-post-container {
-  border: 1px solid gray;
-  border-radius: 0.5rem;
+  border: 1px solid var(--clr-border);
+  border-radius: 0.25rem;
   display: flex;
   align-items: flex-start;
   gap: 0.5rem;
@@ -9,17 +9,18 @@
 }
 .new-post-form {
   flex-grow: 1;
+  /* border: 1px solid red; */
 }
 .new-post-form > textarea {
   width: 100%;
-  font-size: 0.9rem;
+  font-size: var(--fs-200);
   line-height: 1.8;
   background-color: transparent;
   font-family: "Open Sans", sans-serif;
-  min-height: 2rem;
+  min-height: 13ch;
   resize: none;
-  overflow: hidden;
   border: none;
+  /* border: 1px solid green; */
 }
 .new-post-form > textarea:focus {
   outline: none;
@@ -30,6 +31,7 @@
   align-items: center;
   justify-content: flex-end;
   gap: 1rem;
+  /* border: 1px solid blue; */
 }
 .new-post-img-label {
   display: flex;
@@ -38,39 +40,57 @@
 }
 .image-upload-icon {
   font-size: 1.3rem;
-  color: gray;
+  color: var(--clr-text);
 }
 .new-post-img-input {
   display: none;
 }
 .new-post-btn-container > button {
   border: none;
-  background-color: black;
-  color: white;
-  font-size: 0.9rem;
-  padding: 0.4rem 2rem;
+  background-color: var(--clr-primary);
+  font-size: var(--fs-200);
+  padding: 0.3rem 2rem;
   border-radius: 0.25rem;
+  color: var(--clr-text);
 }
 
 .new-post-btn-container > button[disabled] {
   cursor: not-allowed;
   opacity: 0.5;
+  background-color: var(--clr-primary-light);
 }
 .new-post-img-display {
   position: relative;
-  height: 300px;
-  border-radius: 0.5rem;
+  height: 250px;
+  border-radius: 0.25rem;
   margin: 0.25rem 0;
 }
 .new-post-img-display > img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 0.5rem;
+  border-radius: 0.25rem;
 }
 
 .new-post-img-display > button {
   position: absolute;
   top: 0.5rem;
   right: 0.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 100%;
+}
+.emoji-picker-wrapper {
+  position: relative;
+}
+.emoji-picker-container {
+  position: absolute;
+  top: 1rem;
+  right: 0;
+}
+@media (min-width: 768px) {
+  .new-post-form > textarea {
+    min-height: 10ch;
+  }
 }

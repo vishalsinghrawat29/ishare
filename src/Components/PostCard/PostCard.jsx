@@ -18,7 +18,6 @@ import { dislikePost, likePost } from "../../Utils/PostUtils";
 import { PostInBookmarks } from "../../Utils/PostInBookmarks";
 import { addBookmark, removeBookmark } from "../../Utils/UserUtils";
 import { sharePost } from "../../Utils/SharePost";
-import { useNavigate } from "react-router-dom";
 
 const PostCard = ({ post, showOptions, handleShowOptions }) => {
   const { _id } = post;
@@ -39,16 +38,12 @@ const PostCard = ({ post, showOptions, handleShowOptions }) => {
 
   const isShowOption = showOptions === post._id;
 
-  const navigate = useNavigate();
-
   return (
     <div
       className="post-card-container"
       id="post-card-container"
       onClick={(e) => {
         e.stopPropagation();
-
-        navigate(`/post/${_id}`);
       }}
     >
       <div className="post-card-profile">
@@ -56,8 +51,10 @@ const PostCard = ({ post, showOptions, handleShowOptions }) => {
       </div>
       <div className="post-card-body">
         <div className="post-card-details">
-          <p>{currentUserFullName}</p>
-          <p>@{currentUser?.username}</p>
+          <div className="post-card-name">
+            <p>{currentUserFullName}</p>
+            <p>@{currentUser?.username}</p>
+          </div>
           <p>. {postDate}</p>
           <div className="post-card-option">
             <button
@@ -66,7 +63,7 @@ const PostCard = ({ post, showOptions, handleShowOptions }) => {
                 e.stopPropagation();
               }}
             >
-              <BsThreeDots />
+              <BsThreeDots className="icon" />
             </button>
             {isShowOption ? (
               <PostOptionModal
@@ -96,12 +93,9 @@ const PostCard = ({ post, showOptions, handleShowOptions }) => {
               }}
             >
               {LikeByLoggedUser(post, user) ? (
-                <MdFavorite
-                  className="post-card-btn-icon"
-                  style={{ color: "red" }}
-                />
+                <MdFavorite className="icon " style={{ color: "red" }} />
               ) : (
-                <MdFavoriteBorder className="post-card-btn-icon" />
+                <MdFavoriteBorder className="icon " />
               )}
             </button>
 
@@ -121,9 +115,9 @@ const PostCard = ({ post, showOptions, handleShowOptions }) => {
               }}
             >
               {PostInBookmarks(bookmarks, _id) ? (
-                <MdBookmark className="post-card-btn-icon" />
+                <MdBookmark className="icon" />
               ) : (
-                <MdBookmarkBorder className="post-card-btn-icon" />
+                <MdBookmarkBorder className="icon " />
               )}
             </button>
           </div>
@@ -135,7 +129,7 @@ const PostCard = ({ post, showOptions, handleShowOptions }) => {
               sharePost(_id);
             }}
           >
-            <MdShare className="post-card-btn-icon" />
+            <MdShare className="icon " />
           </button>
         </div>
       </div>

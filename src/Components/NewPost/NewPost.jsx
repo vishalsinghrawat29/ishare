@@ -6,7 +6,8 @@ import { uploadImage } from "../../Utils/UploadImage";
 import { UserAvatar } from "../UserAvatar/UserAvatar";
 import "./NewPostStyle.css";
 import { createPost } from "../../Utils/PostUtils";
-
+import { MdClose, MdOutlineAddReaction } from "react-icons/md";
+import EmojiPicker from "emoji-picker-react";
 const NewPost = () => {
   const {
     authState: { user, token },
@@ -23,6 +24,7 @@ const NewPost = () => {
 
   const [input, setInput] = useState("");
   const [image, setImage] = useState(null);
+  const [showEmojiPicker, setShowEmojiPicker] = useState(false);
 
   const submitPost = async (e) => {
     e.preventDefault();
@@ -47,6 +49,7 @@ const NewPost = () => {
       });
     }
     setInput("");
+    setShowEmojiPicker(false);
     setImage(null);
     handleFileInputReset();
   };
@@ -56,10 +59,15 @@ const NewPost = () => {
   };
 
   const setInputHandler = (e) => {
-    setInput(e.target.value);
-    const textarea = document.getElementById("new-post-textarea");
-    textarea.style.height = "auto";
-    textarea.style.height = textarea.scrollHeight + "px";
+    const inputValue = e.target.value.slice(0, 256);
+    setInput(inputValue);
+  };
+
+  const setEmojiHandler = (emojiObj) => {
+    const emoji = emojiObj.emoji;
+    const updatedContent = input + emoji;
+    setInput(updatedContent);
+    setShowEmojiPicker(false);
   };
 
   const resetImage = () => {
@@ -72,6 +80,7 @@ const NewPost = () => {
     if (fileInput) {
       fileInput.value = null;
     }
+    setShowEmojiPicker(false);
   };
 
   useEffect(() => {
@@ -94,7 +103,9 @@ const NewPost = () => {
         {image && (
           <div className="new-post-img-display">
             <img src={URL.createObjectURL(image)} alt="post-img" />
-            <button onClick={resetImage}>Close</button>
+            <button onClick={resetImage} className="center">
+              <MdClose className="icon" />
+            </button>
           </div>
         )}
 
@@ -114,6 +125,21 @@ const NewPost = () => {
                 : setImageHandler(e)
             }
           />
+
+          <label
+            htmlFor="new-post-emoji"
+            className="new-post-img-label"
+            onClick={() => setShowEmojiPicker(!showEmojiPicker)}
+          >
+            <MdOutlineAddReaction className="image-upload-icon" />
+          </label>
+          <div className="emoji-picker-wrapper">
+            {showEmojiPicker && (
+              <div className="emoji-picker-container">
+                <EmojiPicker onEmojiClick={setEmojiHandler} height={380} />
+              </div>
+            )}
+          </div>
 
           <button
             className="new-post-submit-btn"

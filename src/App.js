@@ -9,13 +9,14 @@ import "react-toastify/dist/ReactToastify.css";
 import { TopBar } from "./Components/Topbar/Topbar";
 
 function App() {
-  const { loader } = useContext(AuthContext);
+  const {
+    loader,
+    authState: { token },
+  } = useContext(AuthContext);
 
   return (
     <div className="App">
-      <div className="topbar-container">
-        <TopBar />
-      </div>
+      <div className="topbar-container">{token && <TopBar />}</div>
 
       {loader && <Loader />}
       <AppRoutes />

@@ -5,6 +5,9 @@ import { DataContext } from "../../index";
 import { uploadImage } from "../../Utils/UploadImage";
 import { UserAvatar } from "../UserAvatar/UserAvatar";
 import { createPost, editPost } from "../../Utils/PostUtils";
+import EmojiPicker from "emoji-picker-react";
+import { MdOutlineAddReaction, MdClose } from "react-icons/md";
+
 import "./PostModalStyle.css";
 
 const PostModal = ({ post, setShowNewPostModal, handleShowOptions }) => {
@@ -23,8 +26,8 @@ const PostModal = ({ post, setShowNewPostModal, handleShowOptions }) => {
 
   const [input, setInput] = useState(post || {});
   const [image, setImage] = useState(null);
+  const [showEmojiPicker, setShowEmojiPicker] = useState(false);
 
-  console.log(input, image);
   const submitPost = async (e) => {
     e.preventDefault();
     if (post) {
@@ -75,6 +78,7 @@ const PostModal = ({ post, setShowNewPostModal, handleShowOptions }) => {
     }
 
     setInput("");
+    setShowEmojiPicker(false);
     setImage(null);
     handleFileInputReset();
     setShowNewPostModal(false);
@@ -85,11 +89,21 @@ const PostModal = ({ post, setShowNewPostModal, handleShowOptions }) => {
   };
 
   const setInputHandler = (e) => {
-    const inputValue = e.target.value.slice(0, 256); // Limit input to 256 characters
+    const inputValue = e.target.value.slice(0, 256);
     setInput((prev) => ({
       ...prev,
       content: inputValue,
     }));
+  };
+
+  const setEmojiHandler = (emojiObj) => {
+    const emoji = emojiObj.emoji;
+    const updatedContent = input?.content ? input?.content + emoji : emoji;
+    setInput((prev) => ({
+      ...prev,
+      content: updatedContent,
+    }));
+    setShowEmojiPicker(false);
   };
 
   const resetImage = () => {
@@ -104,6 +118,7 @@ const PostModal = ({ post, setShowNewPostModal, handleShowOptions }) => {
     if (fileInput) {
       fileInput.value = null;
     }
+    setShowEmojiPicker(false);
   };
 
   return (
@@ -125,12 +140,13 @@ const PostModal = ({ post, setShowNewPostModal, handleShowOptions }) => {
               alt="post-modal-img"
             />
             <button
+              className="center"
               onClick={(e) => {
                 e.stopPropagation();
                 resetImage();
               }}
             >
-              Close
+              <MdClose className="icon" />
             </button>
           </div>
         ) : null}
@@ -153,7 +169,28 @@ const PostModal = ({ post, setShowNewPostModal, handleShowOptions }) => {
               }
             }}
           />
+
+          <label
+            htmlFor="post-modal-emoji"
+            className="post-img-label"
+            onClick={() => setShowEmojiPicker(!showEmojiPicker)}
+          >
+            <MdOutlineAddReaction className="post-modal-image-upload-icon " />
+          </label>
+          <div className="emoji-picker-wrapper">
+            {showEmojiPicker && (
+              <div className="emoji-picker-container">
+                <EmojiPicker
+                  onEmojiClick={setEmojiHandler}
+                  width={300}
+                  height={400}
+                />
+              </div>
+            )}
+          </div>
+
           <button
+            type="button"
             onClick={(e) => {
               e.stopPropagation();
               setShowNewPostModal(false);
@@ -166,7 +203,7 @@ const PostModal = ({ post, setShowNewPostModal, handleShowOptions }) => {
           <button
             className="post-modal-submit-btn"
             type="submit"
-            disabled={input === "" && image === null}
+            disabled={!input?.content?.trim() && !image}
           >
             {post ? "Save" : "Post"}
           </button>
