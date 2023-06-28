@@ -79,7 +79,7 @@
   bottom: 0;
   z-index: 10;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
   background-color: rgba(50, 40, 49, 0.311);
 }

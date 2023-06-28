@@ -136,7 +136,11 @@ const NewPost = () => {
           <div className="emoji-picker-wrapper">
             {showEmojiPicker && (
               <div className="emoji-picker-container">
-                <EmojiPicker onEmojiClick={setEmojiHandler} height={380} />
+                <EmojiPicker
+                  onEmojiClick={setEmojiHandler}
+                  height={380}
+                  width={280}
+                />
               </div>
             )}
           </div>

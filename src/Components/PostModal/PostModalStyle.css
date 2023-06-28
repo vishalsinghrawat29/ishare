@@ -17,11 +17,11 @@
 }
 .post-modal-form > textarea {
   width: 100%;
-  font-size: var(--fs-200);
-  line-height: 1.8;
+  font-size: var(--fs-300);
+  line-height: 1.5;
   background-color: transparent;
   font-family: "Open Sans", sans-serif;
-  min-height: 13ch;
+  min-height: 19ch;
   resize: none;
   border: none;
 }
@@ -93,7 +93,7 @@
   position: absolute;
 }
 .post-modal-btn-container > .emoji-picker-wrapper > .emoji-picker-container {
-  top: 1.4rem;
+  top: -420px;
 }
 
 @media (min-width: 768px) {

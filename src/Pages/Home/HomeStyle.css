@@ -14,6 +14,7 @@
   right: 0;
   z-index: 8;
   background-color: var(--clr-background);
+  border-top: 1px solid var(--clr-border);
 }
 .home-page-container .body-box {
   flex-basis: 100%;
@@ -52,6 +53,7 @@
     top: 56px;
     left: auto;
     right: auto;
+    border-top: none;
   }
   .home-page-container .body-box {
     flex-basis: calc(100% - 50px);
