@@ -7,7 +7,7 @@ import { FaHome, FaHashtag, FaRegBookmark, FaPlus } from "react-icons/fa";
 import { UserAvatar } from "../UserAvatar/UserAvatar";
 
 const Sidebar = () => {
-  const { authState, logoutUser } = useContext(AuthContext);
+  const { authState } = useContext(AuthContext);
   const {
     dataState: { users },
   } = useContext(DataContext);
