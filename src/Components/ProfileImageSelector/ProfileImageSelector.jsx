@@ -41,7 +41,7 @@ const ProfileImageSelector = ({
               style={{
                 border:
                   selectedProfileImage === imageUrl
-                    ? "0.25rem solid rgb(246, 55, 134)"
+                    ? "0.25rem solid #ffc801"
                     : "",
               }}
               className="profile-selector-img"
