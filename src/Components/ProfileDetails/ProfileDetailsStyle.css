@@ -22,26 +22,29 @@
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
+  border: 1px solid red;
 }
 .profile-img > span {
   width: 25vw;
   height: 25vw;
+  border: 1px solid red;
 }
 .profile-img > span > img {
   border: 0.3rem solid white;
 }
 .profile-img > span > span {
   border: 0.3rem solid white;
-  font-size: 5rem;
+  font-size: clamp(3rem, 4vw + 1rem, 5rem);
 }
 
 .profile-btn-container {
-  margin-bottom: 7vw;
+  margin-bottom: 5vw;
+  border: 1px solid red;
 }
 .profile-btn-container > button {
   background-color: var(--clr-primary);
-  padding: 0.4rem 1.5rem;
-  border-radius: 0.5rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.25rem;
 }
 .profile-btn {
   justify-content: center;
@@ -152,6 +155,10 @@
     width: 17vw;
     height: 17vw;
   }
+  .profile-btn-container > button {
+    padding: 0.4rem 1.5rem;
+    border-radius: 0.5rem;
+  }
 }
 @media screen and (min-width: 1024px) {
   .profile-avtaar {
@@ -178,7 +185,7 @@
     top: 4vw;
   }
   .profile-btn-container {
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
   }
   .profile-img > span {
     width: 10rem;
