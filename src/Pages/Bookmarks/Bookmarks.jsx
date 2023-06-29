@@ -5,8 +5,6 @@ import { useEffect } from "react";
 import { Sidebar } from "../../Components/Sidebar/Sidebar";
 import { PostCard } from "../../Components/PostCard/PostCard";
 import { SuggestedUsers } from "../../Components/SuggestedUsers/SuggestedUsers";
-import { FilterPosts } from "../../Utils/FilterPosts";
-import { SearchBar } from "../../Components/SearchBar/SearchBar";
 
 const Bookmarks = () => {
   const {
@@ -36,8 +34,6 @@ const Bookmarks = () => {
     bookmarks.find((bookmark) => bookmark === dbPost._id)
   );
 
-  const latestBookmarks = FilterPosts(bookmarkedPosts, "Latest");
-
   return (
     <div className="home-page-container">
       <div className="sidebar-box">
@@ -49,8 +45,8 @@ const Bookmarks = () => {
         <div className="post-cards-box">
           {isPostsLoading ? (
             <p>Loading...</p>
-          ) : latestBookmarks?.length ? (
-            latestBookmarks.map((post) => (
+          ) : bookmarkedPosts?.length ? (
+            bookmarkedPosts.map((post) => (
               <PostCard
                 post={post}
                 key={post._id}
@@ -64,7 +60,6 @@ const Bookmarks = () => {
         </div>
       </div>
       <div className="profile-box">
-        <SearchBar />
         <SuggestedUsers />
       </div>
     </div>
