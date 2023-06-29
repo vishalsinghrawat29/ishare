@@ -22,12 +22,10 @@
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  border: 1px solid red;
 }
 .profile-img > span {
   width: 25vw;
   height: 25vw;
-  border: 1px solid red;
 }
 .profile-img > span > img {
   border: 0.3rem solid white;
@@ -39,7 +37,6 @@
 
 .profile-btn-container {
   margin-bottom: 5vw;
-  border: 1px solid red;
 }
 .profile-btn-container > button {
   background-color: var(--clr-primary);
