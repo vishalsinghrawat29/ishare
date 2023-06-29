@@ -29,7 +29,7 @@ const FollowListModal = ({ followModal, setFollowModal }) => {
               <UserAvatar user={item} />
               <div className="follow-list-names">
                 <span>{`${item?.firstName} ${item?.lastName}`}</span>
-                <span>{item?.username}</span>
+                <span>@{item?.username}</span>
               </div>
             </div>
           ))

@@ -12,7 +12,7 @@
   --clr-secondary: #00a6fb;
   --clr-text: #1b2e35;
   --clr-text-light: gray;
-  --clr-background: #fefdf9;
+  --clr-background: #fbf9f1;
   --clr-border: #c7c6c1;
 
   --fs-xl: clamp(2.25rem, 4vw + 1rem, 5rem);
