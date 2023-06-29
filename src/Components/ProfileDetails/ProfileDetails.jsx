@@ -6,7 +6,7 @@ import { FollowListModal } from "../FollowListModal/FollowListModal";
 import { EditProfileModal } from "../EditProfileModal/EditProfileModal";
 import { followUser, unfollowUser } from "../../Utils/UserUtils";
 import { UserBackground } from "../UserBackground/UserBackground";
-
+import { FaRegEdit } from "react-icons/fa";
 const ProfileDetails = ({ currentUser }) => {
   const {
     authState: { user, token },
@@ -48,9 +48,15 @@ const ProfileDetails = ({ currentUser }) => {
             ) : (
               <UserAvatar user={currentUser} />
             )}
-            <div className="profile-btn">
+            <div className="profile-btn-container">
               {currentUser?.id === user?.id ? (
-                <button onClick={() => setEditModal(true)}>Edit Profile</button>
+                <button
+                  className="center profile-btn"
+                  onClick={() => setEditModal(true)}
+                >
+                  <FaRegEdit className="icon" />
+                  <span>Edit Profile</span>
+                </button>
               ) : (
                 <button
                   onClick={(e) => {

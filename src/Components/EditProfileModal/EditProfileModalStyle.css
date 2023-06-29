@@ -2,7 +2,9 @@
   background-color: white;
   padding: 1rem;
   border-radius: 0.5rem;
-  width: 35%;
+  width: 94%;
+  margin: 0 auto;
+  max-width: 500px;
 }
 .edit-profile-head {
   display: flex;
@@ -11,16 +13,16 @@
   margin-bottom: 1rem;
 }
 .edit-profile-head h1 {
-  font-size: 1.2rem;
+  font-size: var(--fs-400);
   line-height: 1;
   font-weight: 700;
+  letter-spacing: 0.015px;
 }
 .edit-profile-head button {
-  font-size: 1.3rem;
+  font-size: var(--fs-400);
   display: flex;
   align-items: center;
   justify-content: center;
-  border: none;
   background-color: transparent;
 }
 .edit-images-coantiner {
@@ -29,8 +31,8 @@
 .edit-profile-img-container {
   position: absolute;
   top: 2rem;
-  left: 1rem;
-  width: 25%;
+  left: 0;
+  padding: 0 1rem;
 }
 .edit-profile-background-container {
   margin-bottom: 2.5rem;
@@ -42,25 +44,30 @@
 .edit-profile-user-avtaar > span {
   display: block;
 }
-.edit-profile-user-avtaar > span > img {
+.edit-profile-user-avtaar > span {
   width: 7rem;
   height: 7rem;
-  border: 0.25rem solid white;
+}
+.edit-profile-user-avtaar > span > img {
+  border: 0.2rem solid white;
 }
 
 .edit-profile-user-avtaar,
 .edit-profile-user-background {
   position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 .edit-profile-icon-container {
   border-radius: 100%;
   position: absolute;
   width: 1.8rem;
   height: 1.8rem;
-
-  right: 1rem;
-  bottom: 5%;
-
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -78,23 +85,24 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  /* border: 1px solid pink; */
 }
 
 .edit-profile-field label {
   display: block;
   padding: 0.25rem 0;
   font-size: 0.9rem;
+  line-height: 1.5;
   font-weight: 600;
 }
 .edit-profile-field input {
   display: block;
   width: 100%;
-  padding: 0.25rem;
+  padding: 0.3rem;
   font-size: 0.9rem;
   line-height: 1.5;
-  font-weight: 400;
-  border: 1px solid rgb(173, 173, 173);
+  color: var(--clr-text);
+  font-weight: 300;
+  border: 1px solid var(--clr-border);
   outline: none;
   border-radius: 0.25rem;
 }
@@ -103,15 +111,15 @@
   display: none;
 }
 .edit-porfile-form > button {
-  width: 30%;
+  width: 40%;
   padding: 0.5rem;
   font-size: 0.9rem;
   line-height: 1;
   border: none;
-  background-color: black;
-  color: white;
+  background-color: var(--clr-primary);
   border-radius: 0.25rem;
-  margin: 0.75rem auto;
+  margin: 0.5rem auto;
+  color: var(--clr-text);
 }
 .avtaar-edit-wrapper {
   position: relative;
@@ -121,7 +129,9 @@
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
-  background-color: rgb(223, 223, 223);
+  background-color: var(--clr-background);
+  border: 1px solid var(--clr-border);
+  padding: 0.25rem;
   position: absolute;
   top: -1.5rem;
   left: 8rem;
@@ -129,23 +139,17 @@
   border-radius: 0.25rem;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
-.avtaar-edit-modal > label {
-  display: block;
-  width: 100%;
-  padding: 0.25rem 0.5rem;
-  cursor: pointer;
-  border-radius: 0.25rem 0.25rem 0 0;
-}
+
+.avtaar-edit-modal > label,
 .avtaar-edit-modal > span {
   display: block;
   width: 100%;
-  text-align: center;
   padding: 0.25rem 0.5rem;
   cursor: pointer;
-  border-radius: 0 0 0.25rem 0.25rem;
+  border-radius: 0.25rem;
 }
+
 .avtaar-edit-modal > label:hover,
 .avtaar-edit-modal > span:hover {
-  background-color: black;
-  color: white;
+  background-color: var(--clr-primary);
 }

@@ -6,7 +6,7 @@ import { Sidebar } from "../../Components/Sidebar/Sidebar";
 import { ProfileDetails } from "../../Components/ProfileDetails/ProfileDetails";
 import { MdKeyboardBackspace } from "react-icons/md";
 import { SuggestedUsers } from "../../Components/SuggestedUsers/SuggestedUsers";
-import { SearchBar } from "../../Components/SearchBar/SearchBar";
+import "./UserProfileStyle.css";
 
 const UserProfile = () => {
   const { username } = useParams();
@@ -44,38 +44,41 @@ const UserProfile = () => {
         <Sidebar />
       </div>
       <div className="body-box">
-        <div>
-          <button onClick={() => navigate(-1)}>
-            <MdKeyboardBackspace />
+        <div className="profile-nav">
+          <button className="center" onClick={() => navigate(-1)}>
+            <MdKeyboardBackspace className="icon" />
           </button>
           <span>
-            <h1>{currentUser?.username}</h1>
+            <h1>
+              {currentUser?.firstName} {currentUser?.lastName}
+            </h1>
             <p>{currentUserPosts?.length} posts</p>
           </span>
         </div>
 
-        {currentUser ? <ProfileDetails currentUser={currentUser} /> : null}
-        {isPostsLoading ? (
-          <p>Loading...</p>
-        ) : !currentUser ? (
-          <p>User Not Found</p>
-        ) : currentUserPosts?.length ? (
-          [...currentUserPosts]
-            ?.reverse()
-            .map((post) => (
-              <PostCard
-                post={post}
-                key={post._id}
-                showOptions={showOptions}
-                handleShowOptions={handleShowOptions}
-              />
-            ))
-        ) : (
-          <p>No posts to show.</p>
-        )}
+        <div className="post-cards-box">
+          {currentUser ? <ProfileDetails currentUser={currentUser} /> : null}
+          {isPostsLoading ? (
+            <p>Loading...</p>
+          ) : !currentUser ? (
+            <p>User Not Found</p>
+          ) : currentUserPosts?.length ? (
+            [...currentUserPosts]
+              ?.reverse()
+              .map((post) => (
+                <PostCard
+                  post={post}
+                  key={post._id}
+                  showOptions={showOptions}
+                  handleShowOptions={handleShowOptions}
+                />
+              ))
+          ) : (
+            <p>No posts to show.</p>
+          )}
+        </div>
       </div>
       <div className="profile-box">
-        <SearchBar />
         <SuggestedUsers />
       </div>
     </div>

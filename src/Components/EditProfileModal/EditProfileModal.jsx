@@ -1,5 +1,4 @@
-import { MdClose } from "react-icons/md";
-import { BsCamera } from "react-icons/bs";
+import { MdClose, MdOutlineAddPhotoAlternate } from "react-icons/md";
 import "./EditProfileModalStyle.css";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../index";
@@ -159,7 +158,7 @@ const EditProfileModal = ({ setEditModal }) => {
                   }
                 />
                 <div className="edit-profile-icon-container">
-                  <BsCamera className="edit-profile-camera-icon" />
+                  <MdOutlineAddPhotoAlternate className="edit-profile-camera-icon" />
                 </div>
               </div>
             </label>
@@ -206,7 +205,7 @@ const EditProfileModal = ({ setEditModal }) => {
                   setAvtaarEdit((prev) => !prev);
                 }}
               >
-                <BsCamera className="edit-profile-camera-icon" />
+                <MdOutlineAddPhotoAlternate className="edit-profile-camera-icon" />
               </div>
             </div>
           </div>
