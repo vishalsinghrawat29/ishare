@@ -43,7 +43,12 @@
   gap: 1rem;
   /* border: 1px solid red; */
 }
-
+.empty-posts {
+  font-size: var(--fs-300);
+  line-height: 1;
+  text-align: center;
+  font-weight: 700;
+}
 @media (min-width: 768px) {
   .home-page-container {
     width: 100%;

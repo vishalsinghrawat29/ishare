@@ -1,22 +1,37 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import "./SidebarStyle.css";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext, DataContext } from "../../index";
 import { PostModal } from "../PostModal/PostModal";
 import { FaHome, FaHashtag, FaRegBookmark, FaPlus } from "react-icons/fa";
 import { UserAvatar } from "../UserAvatar/UserAvatar";
+import { MdLogout, MdOutlineManageAccounts } from "react-icons/md";
 
 const Sidebar = () => {
-  const { authState } = useContext(AuthContext);
+  const { authState, logoutUser } = useContext(AuthContext);
   const {
     dataState: { users },
   } = useContext(DataContext);
 
   const [showNewPostModal, setShowNewPostModal] = useState(false);
+  const [showPorfileAction, setShowProfileAction] = useState(false);
 
   const currentUser = users.find(
     (dbUser) => dbUser?.username === authState?.user.username
   );
+  const navigate = useNavigate();
+
+  const handleClickOutside = () => {
+    setShowProfileAction(null);
+  };
+
+  useEffect(() => {
+    document.addEventListener("click", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
 
   return (
     <div className="sidebar">
@@ -52,19 +67,22 @@ const Sidebar = () => {
 
       <button
         className="center nav-new-post-btn"
-        onClick={() => setShowNewPostModal(true)}
+        onClick={(e) => {
+          e.stopPropagation();
+          setShowNewPostModal(true);
+          setShowProfileAction(false);
+        }}
       >
         <FaPlus className="icon" />
         <span>New Post</span>
       </button>
 
-      {/* <button className="center nav-btn" onClick={() => logoutUser()}>
-        LogOut
-      </button> */}
-
       <NavLink
-        to={`/profile/${currentUser?.username}`}
-        className={({ isActive }) => (isActive ? "activeNav" : "nav")}
+        className="nav"
+        onClick={(e) => {
+          e.stopPropagation();
+          setShowProfileAction(!showPorfileAction);
+        }}
       >
         <button className="center nav-profile-btn">
           <UserAvatar user={currentUser} />
@@ -76,6 +94,31 @@ const Sidebar = () => {
           </span>
         </button>
       </NavLink>
+
+      {showPorfileAction ? (
+        <div className="nav-profile-action">
+          <button
+            className="center"
+            onClick={() => {
+              navigate(`/profile/${currentUser?.username}`);
+              setShowProfileAction(false);
+            }}
+          >
+            <MdOutlineManageAccounts className="icon" />
+            <span>Go to Profile</span>
+          </button>
+          <button
+            className="center"
+            onClick={() => {
+              logoutUser();
+              setShowProfileAction(false);
+            }}
+          >
+            <MdLogout className="icon" />
+            <span>Logout </span>
+          </button>
+        </div>
+      ) : null}
 
       {showNewPostModal ? (
         <div
