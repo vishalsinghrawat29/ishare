@@ -6,11 +6,11 @@ import { Sidebar } from "../../Components/Sidebar/Sidebar";
 import { PostCard } from "../../Components/PostCard/PostCard";
 import { SuggestedUsers } from "../../Components/SuggestedUsers/SuggestedUsers";
 import { FilterPosts } from "../../Utils/FilterPosts";
-import { SearchBar } from "../../Components/SearchBar/SearchBar";
+import { FilterBar } from "../../Components/FilterBar/FilterBar";
 
 const Explore = () => {
   const {
-    dataState: { posts },
+    dataState: { posts, activeFilter },
     isPostsLoading,
   } = useContext(DataContext);
 
@@ -31,7 +31,7 @@ const Explore = () => {
       document.removeEventListener("click", handleClickOutside);
     };
   }, []);
-  const latestPosts = FilterPosts(posts, "Latest");
+  const latestPosts = FilterPosts(posts, activeFilter);
 
   return (
     <div className="home-page-container">
@@ -40,7 +40,7 @@ const Explore = () => {
       </div>
       <div className="body-box">
         <h1>Explore</h1>
-
+        <FilterBar />
         <div className="post-cards-box">
           {isPostsLoading ? (
             <p>Loading...</p>
@@ -59,7 +59,6 @@ const Explore = () => {
         </div>
       </div>
       <div className="profile-box">
-        <SearchBar />
         <SuggestedUsers />
       </div>
     </div>
