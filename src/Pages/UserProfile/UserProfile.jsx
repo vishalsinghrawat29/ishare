@@ -74,7 +74,7 @@ const UserProfile = () => {
                 />
               ))
           ) : (
-            <p>No posts to show.</p>
+            <p className="empty-posts">No posts to show 😔</p>
           )}
         </div>
       </div>

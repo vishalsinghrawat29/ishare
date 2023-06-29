@@ -74,7 +74,7 @@ const Home = () => {
               />
             ))
           ) : (
-            <p>No Posts</p>
+            <p className="empty-posts">No Posts 😔</p>
           )}
         </div>
       </div>

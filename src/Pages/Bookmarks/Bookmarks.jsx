@@ -55,7 +55,7 @@ const Bookmarks = () => {
               />
             ))
           ) : (
-            <p>No Bookmarks</p>
+            <p className="empty-posts">No Bookmarks 😔</p>
           )}
         </div>
       </div>
