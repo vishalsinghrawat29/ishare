@@ -78,6 +78,7 @@
 @media screen and (min-width: 1200px) {
   .home-page-container {
     padding: 0 0.5rem;
+    position: relative;
   }
   .home-page-container .body-box {
     min-height: calc(100vh - 48px);
@@ -85,5 +86,9 @@
   }
   .home-page-container .profile-box {
     display: block;
+    position: sticky;
+    align-self: flex-start;
+    top: 48.5px;
+    height: calc(100vh - 48.5px);
   }
 }
