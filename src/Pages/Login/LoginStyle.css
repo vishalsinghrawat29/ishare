@@ -8,6 +8,7 @@
   margin: 0rem auto;
   color: var(--clr-text);
   padding: 1rem;
+  background-color: white;
 }
 
 .login-img {

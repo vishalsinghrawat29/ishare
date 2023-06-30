@@ -22,7 +22,7 @@
   --fs-300: 0.9rem;
   --fs-200: 0.8rem;
 }
-body {
+body.token-present {
   background-color: var(--clr-background);
 }
 .App {

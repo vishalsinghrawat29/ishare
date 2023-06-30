@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import "./App.css";
 import { Loader } from "./Components/Loader/Loader";
 import { AppRoutes } from "./Routes/AppRoutes";
@@ -13,6 +13,14 @@ function App() {
     loader,
     authState: { token },
   } = useContext(AuthContext);
+
+  useEffect(() => {
+    if (token) {
+      document.body.classList.add("token-present");
+    } else {
+      document.body.classList.remove("token-present");
+    }
+  }, [token]);
 
   return (
     <div className="App">
