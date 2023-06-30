@@ -18,8 +18,8 @@ function App() {
     <div className="App">
       <div className="topbar-container">{token && <TopBar />}</div>
 
-      {loader && <Loader />}
-      <AppRoutes />
+      {loader ? <Loader /> : <AppRoutes />}
+
       <ToastContainer
         position="bottom-right"
         autoClose={500}
