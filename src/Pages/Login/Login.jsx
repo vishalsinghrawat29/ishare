@@ -9,6 +9,7 @@ const Login = () => {
   const { loginUser } = useContext(AuthContext);
   const [loginData, setLoginData] = useState({ username: "", password: "" });
   const [hidePwd, setHidePwd] = useState(true);
+  const [loginBtnDisabled, setLoginBtnDisabled] = useState(false);
 
   const guestLoginUser = {
     username: "adarshbalika",
@@ -17,12 +18,14 @@ const Login = () => {
 
   const loginHandler = (e) => {
     e.preventDefault();
-    loginUser(loginData);
+    setLoginBtnDisabled(true);
+    loginUser(loginData, setLoginBtnDisabled);
   };
   const guestLoginHandler = (e) => {
     e.preventDefault();
     setLoginData(guestLoginUser);
-    loginUser(guestLoginUser);
+    setLoginBtnDisabled(true);
+    loginUser(guestLoginUser, setLoginBtnDisabled);
   };
 
   const navigate = useNavigate();
@@ -67,8 +70,12 @@ const Login = () => {
             </span>
           </div>
           <div className="login-btn">
-            <button type="submit">Login</button>
-            <button onClick={guestLoginHandler}>Guest Login</button>
+            <button type="submit" disabled={loginBtnDisabled}>
+              Login
+            </button>
+            <button onClick={guestLoginHandler} disabled={loginBtnDisabled}>
+              Guest Login
+            </button>
           </div>
         </form>
         <div className="login-link">

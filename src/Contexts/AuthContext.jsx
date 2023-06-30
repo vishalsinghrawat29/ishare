@@ -17,7 +17,8 @@ export const AuthProvider = ({ children }) => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const loginUser = async (loginInput) => {
+  const loginUser = async (loginInput, setLoginBtnDisabled) => {
+    setLoginBtnDisabled(true);
     try {
       const res = await loginService(loginInput);
       const jsonRes = await res?.json();
@@ -40,10 +41,13 @@ export const AuthProvider = ({ children }) => {
       logoutUser();
       console.log(err);
       toast.error("Please enter valid input!");
+    } finally {
+      setLoginBtnDisabled(true);
     }
   };
 
-  const signupUser = async (signupInput) => {
+  const signupUser = async (signupInput, setSignupBtnDisabled) => {
+    setSignupBtnDisabled(true);
     try {
       const res = await signupService(signupInput);
       const jsonRes = await res.json();
@@ -63,6 +67,8 @@ export const AuthProvider = ({ children }) => {
     } catch (err) {
       toast.error(err.message);
       console.log(err);
+    } finally {
+      setSignupBtnDisabled(false);
     }
   };
 

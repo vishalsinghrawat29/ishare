@@ -13,6 +13,7 @@ const createPost = async ({
   token,
   user,
   dataDispatch,
+  setPostBtnDisbaled,
 }) => {
   try {
     const res = await createPostService({
@@ -25,11 +26,13 @@ const createPost = async ({
     const jsonRes = await res.json();
     if (res.status === 201) {
       dataDispatch({ type: "setPosts", payload: jsonRes?.posts });
+      setPostBtnDisbaled(false);
       toast.success("Added Post.");
     }
   } catch (err) {
     console.log(err);
     toast.error("Post failed, please try again.");
+    setPostBtnDisbaled(false);
   }
 };
 
@@ -40,6 +43,7 @@ const editPost = async ({
   post,
   input,
   dataDispatch,
+  setPostBtnDisbaled,
 }) => {
   try {
     const res = await editPostService({ token, image, imageAlt, post, input });
@@ -47,10 +51,12 @@ const editPost = async ({
     if (res.status === 201) {
       dataDispatch({ type: "setPosts", payload: jsonRes?.posts });
       toast.success("Update Post.");
+      setPostBtnDisbaled(false);
     }
   } catch (err) {
     console.log(err);
     toast.error("Update post failed.");
+    setPostBtnDisbaled(false);
   }
 };
 

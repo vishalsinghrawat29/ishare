@@ -18,9 +18,11 @@ const Signup = () => {
   const [hidePwd, setHidePwd] = useState({ pwd: true, confirmPwd: true });
   const [pwdMatch, setPwdMatch] = useState(true);
 
+  const [signupBtnDisabled, setSignupBtnDisabled] = useState(false);
+
   const signupHandler = (e) => {
     e.preventDefault();
-    signupUser(SignupData);
+    signupUser(SignupData, setSignupBtnDisabled);
   };
 
   const navigate = useNavigate();
@@ -143,7 +145,7 @@ const Signup = () => {
             )}
           </div>
           <div className="login-btn">
-            <button type="submit" disabled={!pwdMatch}>
+            <button type="submit" disabled={!pwdMatch || signupBtnDisabled}>
               Signup
             </button>
           </div>

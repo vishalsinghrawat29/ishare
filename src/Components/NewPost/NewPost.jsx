@@ -25,9 +25,11 @@ const NewPost = () => {
   const [input, setInput] = useState("");
   const [image, setImage] = useState(null);
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
+  const [postBtnDisbaled, setPostBtnDisbaled] = useState(false);
 
   const submitPost = async (e) => {
     e.preventDefault();
+    setPostBtnDisbaled(true);
     if (image) {
       const res = await uploadImage(image);
       createPost({
@@ -37,6 +39,7 @@ const NewPost = () => {
         token,
         user,
         dataDispatch,
+        setPostBtnDisbaled,
       });
     } else {
       createPost({
@@ -46,6 +49,7 @@ const NewPost = () => {
         token,
         user,
         dataDispatch,
+        setPostBtnDisbaled,
       });
     }
     setInput("");
@@ -148,7 +152,7 @@ const NewPost = () => {
           <button
             className="new-post-submit-btn"
             type="submit"
-            disabled={input === "" && image === null}
+            disabled={(input === "" && image === null) || postBtnDisbaled}
           >
             Post
           </button>

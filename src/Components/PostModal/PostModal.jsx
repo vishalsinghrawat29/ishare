@@ -27,11 +27,13 @@ const PostModal = ({ post, setShowNewPostModal, handleShowOptions }) => {
   const [input, setInput] = useState(post || {});
   const [image, setImage] = useState(null);
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
+  const [postBtnDisbaled, setPostBtnDisbaled] = useState(false);
 
   const submitPost = async (e) => {
     e.preventDefault();
     if (post) {
       console.log("updating... post");
+      setPostBtnDisbaled(true);
       if (image) {
         const res = await uploadImage(image);
         editPost({
@@ -41,6 +43,7 @@ const PostModal = ({ post, setShowNewPostModal, handleShowOptions }) => {
           token,
           post,
           dataDispatch,
+          setPostBtnDisbaled,
         });
       } else {
         editPost({
@@ -50,11 +53,13 @@ const PostModal = ({ post, setShowNewPostModal, handleShowOptions }) => {
           token,
           post,
           dataDispatch,
+          setPostBtnDisbaled,
         });
       }
       handleShowOptions(post?._id);
     } else {
       console.log("adding post...");
+      setPostBtnDisbaled(true);
       if (image) {
         const res = await uploadImage(image);
         createPost({
@@ -64,6 +69,7 @@ const PostModal = ({ post, setShowNewPostModal, handleShowOptions }) => {
           token,
           user,
           dataDispatch,
+          setPostBtnDisbaled,
         });
       } else {
         createPost({
@@ -73,6 +79,7 @@ const PostModal = ({ post, setShowNewPostModal, handleShowOptions }) => {
           token,
           user,
           dataDispatch,
+          setPostBtnDisbaled,
         });
       }
     }
@@ -203,7 +210,7 @@ const PostModal = ({ post, setShowNewPostModal, handleShowOptions }) => {
           <button
             className="post-modal-submit-btn"
             type="submit"
-            disabled={!input?.content?.trim() && !image}
+            disabled={(!input?.content?.trim() && !image) || postBtnDisbaled}
           >
             {post ? "Save" : "Post"}
           </button>
