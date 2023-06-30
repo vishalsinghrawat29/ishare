@@ -210,48 +210,45 @@ const EditProfileModal = ({ setEditModal }) => {
             </div>
           </div>
         </div>
-        <div className="avtaar-edit-wrapper">
-          {avtaarEdit && (
-            <div
-              className="avtaar-edit-modal"
+
+        {avtaarEdit && (
+          <div
+            className="avtaar-edit-modal"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <label
+              htmlFor="edit-profile-img"
               onClick={(e) => e.stopPropagation()}
             >
-              <label
-                htmlFor="edit-profile-img"
-                onClick={(e) => e.stopPropagation()}
-              >
-                Upload Image
-              </label>
-              <input
-                id="edit-profile-img"
-                type="file"
-                accept="image/*"
-                className="edit-profile-image"
-                onChange={(e) => {
-                  e.stopPropagation();
-                  const fileSize = Math.round(
-                    e.target.files[0]?.size / 1024000
-                  ); // File size in Mb
-                  if (fileSize > 1) {
-                    alert("File size should not be more than 1Mb");
-                  } else {
-                    setSelectedProfileImage(null);
-                    setProfileImage(e.target.files[0]);
-                    setAvtaarEdit(false);
-                  }
-                }}
-              />
-              <span
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setIsProfileImageSelectorOpen(true);
-                }}
-              >
-                Select Avtaar
-              </span>
-            </div>
-          )}
-        </div>
+              Upload Image
+            </label>
+            <input
+              id="edit-profile-img"
+              type="file"
+              accept="image/*"
+              className="edit-profile-image"
+              onChange={(e) => {
+                e.stopPropagation();
+                const fileSize = Math.round(e.target.files[0]?.size / 1024000); // File size in Mb
+                if (fileSize > 1) {
+                  alert("File size should not be more than 1Mb");
+                } else {
+                  setSelectedProfileImage(null);
+                  setProfileImage(e.target.files[0]);
+                  setAvtaarEdit(false);
+                }
+              }}
+            />
+            <span
+              onClick={(e) => {
+                e.stopPropagation();
+                setIsProfileImageSelectorOpen(true);
+              }}
+            >
+              Select Avtaar
+            </span>
+          </div>
+        )}
 
         {isProfileImageSelectorOpen && (
           <ProfileImageSelector

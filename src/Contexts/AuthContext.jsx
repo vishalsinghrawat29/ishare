@@ -42,7 +42,7 @@ export const AuthProvider = ({ children }) => {
       console.log(err);
       toast.error("Please enter valid input!");
     } finally {
-      setLoginBtnDisabled(true);
+      setLoginBtnDisabled(false);
     }
   };
 
