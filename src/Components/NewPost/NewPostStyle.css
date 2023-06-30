@@ -7,9 +7,11 @@
   padding: 0.5rem;
   background-color: white;
 }
+.new-post-container > span {
+  flex-basis: 2rem;
+}
 .new-post-form {
-  flex-grow: 1;
-  /* border: 1px solid red; */
+  flex-basis: calc(100% - 2.5rem);
 }
 .new-post-form > textarea {
   width: 100%;

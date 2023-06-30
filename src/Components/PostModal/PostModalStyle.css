@@ -1,16 +1,22 @@
 .post-modal-container {
   display: flex;
   align-items: flex-start;
-  min-width: 94%;
+  max-width: 600px;
+  width: 94%;
   margin: 0 auto;
   margin-top: 1rem;
   gap: 0.5rem;
   padding: 0.5rem;
   border-radius: 0.25rem;
   background-color: white;
+  border: 1px solid red;
 }
+.post-modal-container > span {
+  flex-basis: 2rem;
+}
+
 .post-modal-form {
-  flex-grow: 1;
+  flex-basis: calc(100% - 2.5rem);
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
