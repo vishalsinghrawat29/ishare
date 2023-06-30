@@ -9,6 +9,6 @@
   display: block;
   width: 100%;
   aspect-ratio: 5/1;
-  background-color: rgb(214, 214, 214);
+  background-color: var(--clr-primary-light);
   border-radius: 0.25rem 0.25rem 0 0;
 }
