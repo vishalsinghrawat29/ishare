@@ -1,3 +1,5 @@
+import { toast } from "react-toastify";
+
 const uploadImage = async (image) => {
   try {
     const formData = new FormData();
@@ -18,6 +20,7 @@ const uploadImage = async (image) => {
     return jsonRes;
   } catch (err) {
     console.log(err);
+    toast.error("Image Upload failed.");
   }
 };
 export { uploadImage };

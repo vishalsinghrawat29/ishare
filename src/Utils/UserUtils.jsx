@@ -1,3 +1,4 @@
+import { toast } from "react-toastify";
 import {
   addBookmarkService,
   followUserService,
@@ -25,9 +26,11 @@ const addBookmark = async ({ _id, token, dataDispatch }) => {
     const jsonRes = await res.json();
     if (res.status === 200) {
       dataDispatch({ type: "setBookmarks", payload: jsonRes?.bookmarks });
+      toast.success("Post bookmarked.");
     }
   } catch (err) {
     console.log(err);
+    toast.error("Failed to bookmark post. Please try again.");
   }
 };
 const removeBookmark = async ({ _id, token, dataDispatch }) => {
@@ -36,9 +39,11 @@ const removeBookmark = async ({ _id, token, dataDispatch }) => {
     const jsonRes = await res.json();
     if (res.status === 200) {
       dataDispatch({ type: "setBookmarks", payload: jsonRes?.bookmarks });
+      toast.success("Post removed from bookmarks!");
     }
   } catch (err) {
     console.log(err);
+    toast.error("Failed to remove post from bookmarks. Please try again.");
   }
 };
 
@@ -56,9 +61,11 @@ const followUser = async ({ followUserId, token, dataDispatch, users }) => {
         return user;
       });
       dataDispatch({ type: "setUsers", payload: newUsers });
+      toast.success(`Started following ${jsonRes?.followUser?.firstName}`);
     }
   } catch (err) {
     console.log(err);
+    toast.error("An error occurred. Please try again.");
   }
 };
 
@@ -76,9 +83,11 @@ const unfollowUser = async ({ followUserId, token, dataDispatch, users }) => {
         return user;
       });
       dataDispatch({ type: "setUsers", payload: newUsers });
+      toast.success(`Unfollow ${jsonRes?.followUser?.firstName}`);
     }
   } catch (err) {
     console.log(err);
+    toast.error("An error occurred. Please try again.");
   }
 };
 
@@ -103,9 +112,11 @@ const updateProfile = async ({
         return user;
       });
       dataDispatch({ type: "setUsers", payload: newUsers });
+      toast.success(`Prfile Updated.`);
     }
   } catch (err) {
     console.log(err);
+    toast.error(`Prfile Update failed.`);
   }
 };
 

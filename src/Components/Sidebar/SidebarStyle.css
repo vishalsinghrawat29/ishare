@@ -50,6 +50,9 @@
   height: 1.8rem;
   display: block;
 }
+.nav:last-of-type > .nav-profile-btn > span {
+  text-align: left;
+}
 .nav:last-of-type > .nav-profile-btn > span > p:last-of-type,
 .activeNav:last-of-type > .nav-profile-btn > span > p:last-of-type {
   font-size: 0.8rem;

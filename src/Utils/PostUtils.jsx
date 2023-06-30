@@ -1,3 +1,4 @@
+import { toast } from "react-toastify";
 import {
   createPostService,
   deletePostService,
@@ -24,9 +25,11 @@ const createPost = async ({
     const jsonRes = await res.json();
     if (res.status === 201) {
       dataDispatch({ type: "setPosts", payload: jsonRes?.posts });
+      toast.success("Added Post.");
     }
   } catch (err) {
     console.log(err);
+    toast.error("Post failed, please try again.");
   }
 };
 
@@ -43,9 +46,11 @@ const editPost = async ({
     const jsonRes = await res.json();
     if (res.status === 201) {
       dataDispatch({ type: "setPosts", payload: jsonRes?.posts });
+      toast.success("Update Post.");
     }
   } catch (err) {
     console.log(err);
+    toast.error("Update post failed.");
   }
 };
 
@@ -55,9 +60,11 @@ const deletePost = async ({ _id, token, dataDispatch }) => {
     const jsonRes = await res.json();
     if (res.status === 201) {
       dataDispatch({ type: "setPosts", payload: jsonRes?.posts });
+      toast.success("Delete Post.");
     }
   } catch (err) {
     console.log(err);
+    toast.error("Update post failed.");
   }
 };
 
