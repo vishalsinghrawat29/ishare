@@ -9,7 +9,7 @@ const UserAvatar = ({ user }) => {
       {avatar ? (
         <img src={avatar} alt={user?.username} />
       ) : (
-        <span>{userInitial}</span>
+        <span>{userInitial.toUpperCase()}</span>
       )}
     </span>
   );

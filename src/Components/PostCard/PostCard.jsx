@@ -18,6 +18,7 @@ import { dislikePost, likePost } from "../../Utils/PostUtils";
 import { PostInBookmarks } from "../../Utils/PostInBookmarks";
 import { addBookmark, removeBookmark } from "../../Utils/UserUtils";
 import { sharePost } from "../../Utils/SharePost";
+import { useNavigate } from "react-router-dom";
 
 const PostCard = ({ post, showOptions, handleShowOptions }) => {
   const { _id } = post;
@@ -38,6 +39,8 @@ const PostCard = ({ post, showOptions, handleShowOptions }) => {
 
   const isShowOption = showOptions === post._id;
 
+  const navigate = useNavigate();
+
   return (
     <div
       className="post-card-container"
@@ -51,7 +54,10 @@ const PostCard = ({ post, showOptions, handleShowOptions }) => {
       </div>
       <div className="post-card-body">
         <div className="post-card-details">
-          <div className="post-card-name">
+          <div
+            className="post-card-name"
+            onClick={() => navigate(`/profile/${currentUser?.username}`)}
+          >
             <p>{currentUserFullName}</p>
             <p>@{currentUser?.username}</p>
           </div>

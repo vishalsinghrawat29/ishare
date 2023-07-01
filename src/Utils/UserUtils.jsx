@@ -113,11 +113,11 @@ const updateProfile = async ({
         return user;
       });
       dataDispatch({ type: "setUsers", payload: newUsers });
-      toast.success(`Prfile Updated.`);
+      toast.success(`Profile Updated.`);
     }
   } catch (err) {
     console.log(err);
-    toast.error(`Prfile Update failed.`);
+    toast.error(`Profile Update failed.`);
   } finally {
     setProfileBtnDisabled(false);
   }

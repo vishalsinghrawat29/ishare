@@ -33,6 +33,7 @@
 .profile-img > span > span {
   border: 0.3rem solid white;
   font-size: clamp(3rem, 4vw + 1rem, 5rem);
+  line-height: 1;
 }
 
 .profile-btn-container {

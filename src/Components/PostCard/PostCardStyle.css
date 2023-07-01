@@ -30,6 +30,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.1rem;
+  cursor: pointer;
 }
 .post-card-details > .post-card-name > p,
 .post-card-details > p {

@@ -84,7 +84,16 @@ const ProfileDetails = ({ currentUser }) => {
           <p className="profile-username">@{currentUser?.username}</p>
         </div>
         <p className="profile-bio">{currentUser?.bio}</p>
-        <a href={currentUser?.website} className="profile-website">
+        <a
+          href={
+            currentUser?.website && !currentUser?.website.includes("https://")
+              ? `https://${currentUser.website}`
+              : currentUser?.website
+          }
+          target="_blank"
+          rel="noreferrer"
+          className="profile-website"
+        >
           {currentUser?.website}
         </a>
         <div className="profile-follow-container">
