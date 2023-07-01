@@ -97,6 +97,7 @@ const updateProfile = async ({
   authDispatch,
   dataDispatch,
   users,
+  setProfileBtnDisabled,
 }) => {
   console.log(editInput);
   try {
@@ -117,6 +118,8 @@ const updateProfile = async ({
   } catch (err) {
     console.log(err);
     toast.error(`Prfile Update failed.`);
+  } finally {
+    setProfileBtnDisabled(false);
   }
 };
 

@@ -7,6 +7,7 @@ const ProfileImageSelector = ({
   selectedProfileImage,
   setIsProfileImageSelectorOpen,
   setSelectedProfileImage,
+  currentUser,
 }) => {
   const onSelectProfileImage = (imageUrl) => {
     setSelectedProfileImage(imageUrl);
@@ -40,7 +41,8 @@ const ProfileImageSelector = ({
             <img
               style={{
                 border:
-                  selectedProfileImage === imageUrl
+                  selectedProfileImage === imageUrl ||
+                  currentUser?.profileAvatar === imageUrl
                     ? "0.25rem solid #ffc801"
                     : "",
               }}

@@ -29,13 +29,13 @@ const EditProfileModal = ({ setEditModal }) => {
   const [selectedProfileImage, setSelectedProfileImage] = useState(null);
   const [isProfileImageSelectorOpen, setIsProfileImageSelectorOpen] =
     useState(false);
-
   const [avtaarEdit, setAvtaarEdit] = useState(false);
+  const [profileUpdateBtnDisbaled, setProfileBtnDisabled] = useState(false);
 
   const editFormHandler = async (e) => {
     e.stopPropagation();
     e.preventDefault();
-
+    setProfileBtnDisabled(true);
     if (profileImage && backgroundImage) {
       const profileImageRes = await uploadImage(profileImage);
       const backgroundImageRes = await uploadImage(backgroundImage);
@@ -50,6 +50,7 @@ const EditProfileModal = ({ setEditModal }) => {
         authDispatch,
         dataDispatch,
         users,
+        setProfileBtnDisabled,
       });
     } else if (selectedProfileImage && backgroundImage) {
       const backgroundImageRes = await uploadImage(backgroundImage);
@@ -64,6 +65,7 @@ const EditProfileModal = ({ setEditModal }) => {
         authDispatch,
         dataDispatch,
         users,
+        setProfileBtnDisabled,
       });
     } else if (backgroundImage) {
       const res = await uploadImage(backgroundImage);
@@ -77,6 +79,7 @@ const EditProfileModal = ({ setEditModal }) => {
         authDispatch,
         dataDispatch,
         users,
+        setProfileBtnDisabled,
       });
     } else if (profileImage) {
       const res = await uploadImage(profileImage);
@@ -90,6 +93,7 @@ const EditProfileModal = ({ setEditModal }) => {
         authDispatch,
         dataDispatch,
         users,
+        setProfileBtnDisabled,
       });
     } else if (selectedProfileImage) {
       updateProfile({
@@ -102,6 +106,7 @@ const EditProfileModal = ({ setEditModal }) => {
         authDispatch,
         dataDispatch,
         users,
+        setProfileBtnDisabled,
       });
     } else {
       updateProfile({
@@ -110,6 +115,7 @@ const EditProfileModal = ({ setEditModal }) => {
         authDispatch,
         dataDispatch,
         users,
+        setProfileBtnDisabled,
       });
     }
     setEditModal(false);
@@ -210,52 +216,55 @@ const EditProfileModal = ({ setEditModal }) => {
             </div>
           </div>
         </div>
-
-        {avtaarEdit && (
-          <div
-            className="avtaar-edit-modal"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <label
-              htmlFor="edit-profile-img"
+        <div className="avtaar-edit-wrapper">
+          {avtaarEdit && (
+            <div
+              className="avtaar-edit-modal"
               onClick={(e) => e.stopPropagation()}
             >
-              Upload Image
-            </label>
-            <input
-              id="edit-profile-img"
-              type="file"
-              accept="image/*"
-              className="edit-profile-image"
-              onChange={(e) => {
-                e.stopPropagation();
-                const fileSize = Math.round(e.target.files[0]?.size / 1024000); // File size in Mb
-                if (fileSize > 1) {
-                  alert("File size should not be more than 1Mb");
-                } else {
-                  setSelectedProfileImage(null);
-                  setProfileImage(e.target.files[0]);
-                  setAvtaarEdit(false);
-                }
-              }}
-            />
-            <span
-              onClick={(e) => {
-                e.stopPropagation();
-                setIsProfileImageSelectorOpen(true);
-              }}
-            >
-              Select Avtaar
-            </span>
-          </div>
-        )}
-
+              <label
+                htmlFor="edit-profile-img"
+                onClick={(e) => e.stopPropagation()}
+              >
+                Upload Image
+              </label>
+              <input
+                id="edit-profile-img"
+                type="file"
+                accept="image/*"
+                className="edit-profile-image"
+                onChange={(e) => {
+                  e.stopPropagation();
+                  const fileSize = Math.round(
+                    e.target.files[0]?.size / 1024000
+                  ); // File size in Mb
+                  if (fileSize > 1) {
+                    alert("File size should not be more than 1Mb");
+                  } else {
+                    setSelectedProfileImage(null);
+                    setProfileImage(e.target.files[0]);
+                    setAvtaarEdit(false);
+                  }
+                }}
+              />
+              <span
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setIsProfileImageSelectorOpen(true);
+                }}
+              >
+                Select Avtaar
+              </span>
+            </div>
+          )}
+        </div>
         {isProfileImageSelectorOpen && (
           <ProfileImageSelector
             setAvtaarEdit={setAvtaarEdit}
             selectedProfileImage={selectedProfileImage}
             setIsProfileImageSelectorOpen={setIsProfileImageSelectorOpen}
             setSelectedProfileImage={setSelectedProfileImage}
+            currentUser={currentUser}
           />
         )}
 
@@ -297,7 +306,11 @@ const EditProfileModal = ({ setEditModal }) => {
             onChange={editChangeHandler}
           />
         </div>
-        <button type="submit" onClick={(e) => e.stopPropagation()}>
+        <button
+          type="submit"
+          onClick={(e) => e.stopPropagation()}
+          disabled={profileUpdateBtnDisbaled}
+        >
           Save
         </button>
       </form>

@@ -23,17 +23,12 @@ const ProfileDetails = ({ currentUser }) => {
     title: "",
     list: [],
   });
-  console.log(currentUser);
 
   const loggedInUser = users.find(({ username }) => username === user.username);
-  const { username, followers } = currentUser;
-  console.log(username, followers);
 
   const userAlreadyFollowing = currentUser?.followers?.find(
     (follower) => follower.username === loggedInUser.username
   );
-  console.log(userAlreadyFollowing);
-  console.log(currentUser, user);
 
   return (
     <div className="profile-container">

@@ -35,6 +35,8 @@
 }
 .edit-profile-background-container {
   min-height: 9.05rem;
+  border: 1px solid red;
+  margin-bottom: -0.5rem;
 }
 .edit-profile-user-background > span > span {
   height: 5.8rem;
@@ -87,9 +89,12 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  position: relative;
+  /* position: relative; */
+  border: 1px solid red;
 }
-
+.edit-profile-field {
+  border: 1px solid green;
+}
 .edit-profile-field label {
   display: block;
   padding: 0.25rem 0;
@@ -124,6 +129,9 @@
   margin: 0.5rem auto;
   color: var(--clr-text);
 }
+.avtaar-edit-wrapper {
+  position: relative;
+}
 .avtaar-edit-modal {
   display: flex;
   flex-direction: column;
@@ -133,7 +141,7 @@
   border: 1px solid var(--clr-border);
   padding: 0.25rem;
   position: absolute;
-  top: 6.5rem;
+  top: -2rem;
   left: 8rem;
   font-size: 0.9rem;
   border-radius: 0.25rem;
