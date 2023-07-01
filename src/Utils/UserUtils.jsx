@@ -98,6 +98,7 @@ const updateProfile = async ({
   dataDispatch,
   users,
   setProfileBtnDisabled,
+  toastId,
 }) => {
   console.log(editInput);
   try {
@@ -113,11 +114,21 @@ const updateProfile = async ({
         return user;
       });
       dataDispatch({ type: "setUsers", payload: newUsers });
-      toast.success(`Profile Updated.`);
+      toast.update(toastId, {
+        render: "Profile Updated.",
+        type: "success",
+        isLoading: false,
+        autoClose: 500,
+      });
     }
   } catch (err) {
     console.log(err);
-    toast.error(`Profile Update failed.`);
+    toast.update(toastId, {
+      render: "Profile Update failed.",
+      type: "success",
+      isLoading: false,
+      autoClose: 500,
+    });
   } finally {
     setProfileBtnDisabled(false);
   }

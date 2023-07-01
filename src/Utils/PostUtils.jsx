@@ -14,6 +14,7 @@ const createPost = async ({
   user,
   dataDispatch,
   setPostBtnDisbaled,
+  toastId,
 }) => {
   try {
     const res = await createPostService({
@@ -27,11 +28,21 @@ const createPost = async ({
     if (res.status === 201) {
       dataDispatch({ type: "setPosts", payload: jsonRes?.posts });
       setPostBtnDisbaled(false);
-      toast.success("Added Post.");
+      toast.update(toastId, {
+        render: "Post Added.",
+        type: "success",
+        isLoading: false,
+        autoClose: 500,
+      });
     }
   } catch (err) {
     console.log(err);
-    toast.error("Post failed, please try again.");
+    toast.update(toastId, {
+      render: "Post failed, please try again.",
+      type: "success",
+      isLoading: false,
+      autoClose: 500,
+    });
     setPostBtnDisbaled(false);
   }
 };
@@ -44,18 +55,29 @@ const editPost = async ({
   input,
   dataDispatch,
   setPostBtnDisbaled,
+  toastId,
 }) => {
   try {
     const res = await editPostService({ token, image, imageAlt, post, input });
     const jsonRes = await res.json();
     if (res.status === 201) {
       dataDispatch({ type: "setPosts", payload: jsonRes?.posts });
-      toast.success("Update Post.");
+      toast.update(toastId, {
+        render: "Post Updated.",
+        type: "success",
+        isLoading: false,
+        autoClose: 500,
+      });
       setPostBtnDisbaled(false);
     }
   } catch (err) {
     console.log(err);
-    toast.error("Update post failed.");
+    toast.update(toastId, {
+      render: "Profile Update failed.",
+      type: "success",
+      isLoading: false,
+      autoClose: 500,
+    });
     setPostBtnDisbaled(false);
   }
 };

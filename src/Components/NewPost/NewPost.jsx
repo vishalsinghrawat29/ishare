@@ -8,6 +8,7 @@ import "./NewPostStyle.css";
 import { createPost } from "../../Utils/PostUtils";
 import { MdClose, MdOutlineAddReaction } from "react-icons/md";
 import EmojiPicker from "emoji-picker-react";
+import { toast } from "react-toastify";
 const NewPost = () => {
   const {
     authState: { user, token },
@@ -30,6 +31,7 @@ const NewPost = () => {
   const submitPost = async (e) => {
     e.preventDefault();
     setPostBtnDisbaled(true);
+    const toastId = toast.loading("Post adding...", { autoClose: false });
     if (image) {
       const res = await uploadImage(image);
       createPost({
@@ -40,6 +42,7 @@ const NewPost = () => {
         user,
         dataDispatch,
         setPostBtnDisbaled,
+        toastId,
       });
     } else {
       createPost({
@@ -50,6 +53,7 @@ const NewPost = () => {
         user,
         dataDispatch,
         setPostBtnDisbaled,
+        toastId,
       });
     }
     setInput("");

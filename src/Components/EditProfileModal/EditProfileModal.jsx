@@ -8,6 +8,7 @@ import { updateProfile } from "../../Utils/UserUtils";
 import { UserAvatar } from "../UserAvatar/UserAvatar";
 import { UserBackground } from "../UserBackground/UserBackground";
 import { ProfileImageSelector } from "../ProfileImageSelector/ProfileImageSelector";
+import { toast } from "react-toastify";
 const EditProfileModal = ({ setEditModal }) => {
   const {
     authState: { user, token },
@@ -36,6 +37,7 @@ const EditProfileModal = ({ setEditModal }) => {
     e.stopPropagation();
     e.preventDefault();
     setProfileBtnDisabled(true);
+    const toastId = toast.loading("Profile Updating...", { autoClose: false });
     if (profileImage && backgroundImage) {
       const profileImageRes = await uploadImage(profileImage);
       const backgroundImageRes = await uploadImage(backgroundImage);
@@ -51,6 +53,7 @@ const EditProfileModal = ({ setEditModal }) => {
         dataDispatch,
         users,
         setProfileBtnDisabled,
+        toastId,
       });
     } else if (selectedProfileImage && backgroundImage) {
       const backgroundImageRes = await uploadImage(backgroundImage);
@@ -66,6 +69,7 @@ const EditProfileModal = ({ setEditModal }) => {
         dataDispatch,
         users,
         setProfileBtnDisabled,
+        toastId,
       });
     } else if (backgroundImage) {
       const res = await uploadImage(backgroundImage);
@@ -80,6 +84,7 @@ const EditProfileModal = ({ setEditModal }) => {
         dataDispatch,
         users,
         setProfileBtnDisabled,
+        toastId,
       });
     } else if (profileImage) {
       const res = await uploadImage(profileImage);
@@ -94,6 +99,7 @@ const EditProfileModal = ({ setEditModal }) => {
         dataDispatch,
         users,
         setProfileBtnDisabled,
+        toastId,
       });
     } else if (selectedProfileImage) {
       updateProfile({
@@ -107,6 +113,7 @@ const EditProfileModal = ({ setEditModal }) => {
         dataDispatch,
         users,
         setProfileBtnDisabled,
+        toastId,
       });
     } else {
       updateProfile({
@@ -116,8 +123,10 @@ const EditProfileModal = ({ setEditModal }) => {
         dataDispatch,
         users,
         setProfileBtnDisabled,
+        toastId,
       });
     }
+
     setEditModal(false);
   };
 

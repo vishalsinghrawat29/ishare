@@ -9,6 +9,7 @@ import EmojiPicker from "emoji-picker-react";
 import { MdOutlineAddReaction, MdClose } from "react-icons/md";
 
 import "./PostModalStyle.css";
+import { toast } from "react-toastify";
 
 const PostModal = ({ post, setShowNewPostModal, handleShowOptions }) => {
   const {
@@ -33,6 +34,7 @@ const PostModal = ({ post, setShowNewPostModal, handleShowOptions }) => {
     e.preventDefault();
     if (post) {
       console.log("updating... post");
+      const toastId = toast.loading("Updating Post...", { autoClose: false });
       setPostBtnDisbaled(true);
       if (image) {
         const res = await uploadImage(image);
@@ -44,6 +46,7 @@ const PostModal = ({ post, setShowNewPostModal, handleShowOptions }) => {
           post,
           dataDispatch,
           setPostBtnDisbaled,
+          toastId,
         });
       } else {
         editPost({
@@ -54,11 +57,13 @@ const PostModal = ({ post, setShowNewPostModal, handleShowOptions }) => {
           post,
           dataDispatch,
           setPostBtnDisbaled,
+          toastId,
         });
       }
       handleShowOptions(post?._id);
     } else {
       console.log("adding post...");
+      const toastId = toast.loading("Adding Post...", { autoClose: false });
       setPostBtnDisbaled(true);
       if (image) {
         const res = await uploadImage(image);
@@ -70,6 +75,7 @@ const PostModal = ({ post, setShowNewPostModal, handleShowOptions }) => {
           user,
           dataDispatch,
           setPostBtnDisbaled,
+          toastId,
         });
       } else {
         createPost({
@@ -80,6 +86,7 @@ const PostModal = ({ post, setShowNewPostModal, handleShowOptions }) => {
           user,
           dataDispatch,
           setPostBtnDisbaled,
+          toastId,
         });
       }
     }
