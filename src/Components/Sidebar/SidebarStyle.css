@@ -50,6 +50,7 @@
   height: 1.8rem;
   display: block;
 }
+
 .nav:last-of-type > .nav-profile-btn > span {
   text-align: left;
 }
@@ -150,6 +151,23 @@
     display: block;
     width: 100%;
     border-radius: 0.25rem;
+    overflow: hidden;
+  }
+  .nav-profile-btn {
+    justify-content: space-between;
+    gap: 0.25rem;
+  }
+
+  .nav-profile-btn > span:last-of-type {
+    width: calc(100% - 2.5rem);
+  }
+
+  .nav-profile-btn > span:last-of-type > p {
+    display: block;
+    height: 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   .nav > button,
   .activeNav > button {

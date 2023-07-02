@@ -41,7 +41,6 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  /* border: 1px solid red; */
 }
 .empty-posts {
   font-size: var(--fs-300);
@@ -72,6 +71,9 @@
   .home-page-container .body-box {
     flex-basis: calc(100% - 200px);
     margin-left: 200px;
+  }
+  .home-page-container .sidebar-box {
+    width: 200px;
   }
 }
 

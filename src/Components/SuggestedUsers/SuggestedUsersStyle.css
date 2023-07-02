@@ -46,3 +46,8 @@
   font-size: 0.8rem;
   border-radius: 0.25rem;
 }
+
+.suggested-user-profile > span > img {
+  width: 2rem;
+  height: 2rem;
+}
