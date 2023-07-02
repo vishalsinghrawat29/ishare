@@ -24,7 +24,12 @@ const EditProfileModal = ({ setEditModal }) => {
     (dbUser) => dbUser.username === user.username
   );
 
-  const [editInput, setEditInput] = useState(currentUser);
+  const [editInput, setEditInput] = useState({
+    firstName: currentUser?.firstName || "",
+    lastName: currentUser?.lastName || "",
+    bio: currentUser?.bio || "",
+    website: currentUser?.website || "",
+  });
   const [profileImage, setProfileImage] = useState(null);
   const [backgroundImage, setBackgroundImage] = useState(null);
   const [selectedProfileImage, setSelectedProfileImage] = useState(null);
@@ -133,7 +138,10 @@ const EditProfileModal = ({ setEditModal }) => {
   const editChangeHandler = (e) => {
     e.stopPropagation();
     const { name, value } = e.target;
-    setEditInput(() => ({ ...editInput, [name]: value }));
+    setEditInput((prevEditInput) => ({
+      ...prevEditInput,
+      [name]: value,
+    }));
   };
 
   return (
@@ -282,7 +290,7 @@ const EditProfileModal = ({ setEditModal }) => {
           <input
             type="text"
             name="firstName"
-            value={editInput.firstName}
+            value={editInput?.firstName}
             onChange={editChangeHandler}
             required
           />
@@ -292,7 +300,7 @@ const EditProfileModal = ({ setEditModal }) => {
           <input
             type="text"
             name="lastName"
-            value={editInput.lastName}
+            value={editInput?.lastName}
             onChange={editChangeHandler}
             required
           />
@@ -302,7 +310,7 @@ const EditProfileModal = ({ setEditModal }) => {
           <input
             type="text"
             name="bio"
-            value={editInput.bio}
+            value={editInput?.bio}
             onChange={editChangeHandler}
           />
         </div>
@@ -311,7 +319,7 @@ const EditProfileModal = ({ setEditModal }) => {
           <input
             type="text"
             name="website"
-            value={editInput.website}
+            value={editInput?.website}
             onChange={editChangeHandler}
           />
         </div>
