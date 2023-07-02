@@ -20,6 +20,9 @@
   border: 1px solid var(--clr-border);
   cursor: pointer;
 }
+.suggested-user-profile > span > span {
+  font-size: 1.1rem;
+}
 
 .suggested-user-info {
   display: flex;
