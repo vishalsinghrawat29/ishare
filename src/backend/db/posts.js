@@ -56,8 +56,9 @@ export const posts = [
     _id: uuid(),
     content:
       "AI: a game-changer reshaping industries and enhancing lives. From self-driving cars to personalized recommendations, its power is limitless. We stand at the forefront of an exciting era, witnessing the remarkable possibilities of artificial intelligence. 🚀",
-    image: "",
-    imageAlt: "",
+    image:
+      "https://res.cloudinary.com/dogvmq3s7/image/upload/v1688301062/iShare/qwn1gy3gsymkpqwdcmmt.jpg",
+    imageAlt: "ai-image",
     likes: {
       likeCount: 0,
       likedBy: [],
