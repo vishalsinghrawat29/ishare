@@ -1,70 +1,53 @@
-# Getting Started with Create React App
+# iShare - Social Media App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to iShare, a social media application that allows users to connect, share content, and engage with others. This readme file provides an overview of the iShare app, its features, and instructions on how to set it up and run it locally.
 
-## Available Scripts
+## How to install and run locally?
 
-In the project directory, you can run:
+To install and run iShare on your local machine, follow these steps:
 
-### `npm start`
+1. Clone the repository:
+   ```
+   $ git clone https://github.com/vishalsinghrawat29/ishare.git
+   ```
+2. Navigate to the project directory:
+   ```
+   $ cd ishare
+   ```
+3. Install the required dependencies:
+   ```
+   $ npm install
+   ```
+4. Start the app:
+   ```
+   $ npm start
+   ```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Features:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **User Feed:** A landing page that displays a list of user posts. Users can sort and filter posts by date and popularity.
+- **Create a Post:** Users can create new posts by clicking on the "+" or "Create new post" button and submitting their content. They can upload images and add emojis to their posts.
+- **Like, Edit, and Delete Posts:** Users can express appreciation by liking posts. They can edit their own posts or delete them.
+- **User Profile:** Users have a customizable profile where they can set a profile picture, add a bio, and include a portfolio URL. They can also edit their profile photo.
+- **Follow/Unfollow:** Users can follow or unfollow other users to stay connected.
+  Explore Feed: Users can explore posts from people they don't follow.
+- **Bookmark Posts:** Users can bookmark posts for easy access later.
+- **Sign-up and Login:** Users can sign up using their email, first name, last name, username, password, and confirm password. They can then log in using their email and password.
+- **Logout:** Users can log out from their account.
 
-### `npm test`
+## Technologies Used
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- ReactJS
+- React Context API, useReducer
+- React Router v6
+- Vanilla CSS
+- HTML
+- MockBee for backend
+- React-icons
+- React toastify
 
-### `npm run build`
+## Contact
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+If you have any suggestions, questions, or feedback, please feel free to contact me at vsrawat2906@gmail.com .
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Thank you for using iShare - social media app. We wish you have a wonderful experience!
