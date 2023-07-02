@@ -15,9 +15,9 @@ export const users = [
     bio: "Tech enthusiast. Innovations. Geek. 🤓",
     website: "https://adarshbalika.netlify.app/",
     profileAvatar:
-      "https://res.cloudinary.com/dogvmq3s7/image/upload/v1686489210/iShare/waz9ndhyvwua7m7fcply.png",
+      "https://res.cloudinary.com/dogvmq3s7/image/upload/v1688277178/iShare/atbwnvlcabmkhqem1r2k.png",
     profileBackground:
-      "https://res.cloudinary.com/dogvmq3s7/image/upload/v1686918509/iShare/clbiotkto15ot2iiqvaf.png",
+      "https://res.cloudinary.com/dogvmq3s7/image/upload/v1688277340/iShare/qlexx8eovrlvvunpmbtt.jpg",
     createdAt: formatDate(),
     updatedAt: formatDate(),
   },

@@ -18,6 +18,7 @@
   background-color: white;
   border-radius: 0.25rem;
   border: 1px solid var(--clr-border);
+  cursor: pointer;
 }
 
 .suggested-user-info {
