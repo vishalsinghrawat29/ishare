@@ -121,23 +121,7 @@
 .profile-background {
   position: relative;
 }
-/* .profile-background-icon-box {
-  position: absolute;
-  bottom: 0.5rem;
-  right: 0.5rem;
-  width: 2rem;
-  height: 2rem;
-  padding: 0.25rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 100%;
-  background-color: rgb(255, 255, 255);
-}
-.profile-background-camera-icon {
-  font-size: 0.9rem;
-  color: rgb(73, 203, 255);
-} */
+
 @media screen and (min-width: 768px) {
   .profile-avtaar {
     min-height: 27.5vw;

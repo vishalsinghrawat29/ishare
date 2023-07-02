@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { RiImageAddFill } from "react-icons/ri";
 import { AuthContext } from "../../index";
 import { DataContext } from "../../index";
@@ -15,7 +15,7 @@ const NewPost = () => {
   } = useContext(AuthContext);
 
   const {
-    dataState: { users, posts, bookmarks },
+    dataState: { users },
     dataDispatch,
   } = useContext(DataContext);
 
@@ -90,11 +90,6 @@ const NewPost = () => {
     }
     setShowEmojiPicker(false);
   };
-
-  useEffect(() => {
-    console.log("posts", posts);
-    console.log("bookmarks", bookmarks);
-  }, [posts, bookmarks]);
 
   return (
     <div className="new-post-container" onClick={(e) => e.stopPropagation()}>

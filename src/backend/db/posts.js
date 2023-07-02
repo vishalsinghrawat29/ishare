@@ -70,6 +70,22 @@ export const posts = [
   {
     _id: uuid(),
     content:
+      "Took a spontaneous road trip this weekend and discovered the most breathtaking scenery. Mother Nature truly knows how to leave you speechless.",
+    image:
+      "https://res.cloudinary.com/dogvmq3s7/image/upload/v1688279073/hyteowy806inzbz0nohc.jpg",
+    imageAlt: "road-trip",
+    likes: {
+      likeCount: 0,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "shahsurya",
+    createdAt: "2021-02-10",
+    updatedAt: formatDate(),
+  },
+  {
+    _id: uuid(),
+    content:
       "For those wondering how to write, start to write. And think. Watch how you think. Watch how things are. Connect the dots and you will get a point of view to share. Don't try to impress, try to present - put forward things.",
     image: "",
     imageAlt: "",

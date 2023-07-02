@@ -33,7 +33,6 @@ const PostModal = ({ post, setShowNewPostModal, handleShowOptions }) => {
   const submitPost = async (e) => {
     e.preventDefault();
     if (post) {
-      console.log("updating... post");
       const toastId = toast.loading("Updating Post...", { autoClose: false });
       setPostBtnDisbaled(true);
       if (image) {
@@ -62,7 +61,6 @@ const PostModal = ({ post, setShowNewPostModal, handleShowOptions }) => {
       }
       handleShowOptions(post?._id);
     } else {
-      console.log("adding post...");
       const toastId = toast.loading("Adding Post...", { autoClose: false });
       setPostBtnDisbaled(true);
       if (image) {

@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import "./PostOptionModalStyle.css";
 import { AuthContext } from "../../index";
 import { DataContext } from "../../index";
@@ -34,10 +34,6 @@ const PostOptionModal = ({ post, handleShowOptions }) => {
 
   const { pathname } = useLocation();
   const navigate = useNavigate();
-
-  useEffect(() => {
-    console.log("Follwing", userAlreadyFollowing);
-  }, [users, userAlreadyFollowing]);
 
   return (
     <div className="post-option-container">

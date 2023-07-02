@@ -100,7 +100,6 @@ const updateProfile = async ({
   setProfileBtnDisabled,
   toastId,
 }) => {
-  console.log(editInput);
   try {
     const res = await updateProfileService({ editInput, token });
     const jsonRes = await res.json();
