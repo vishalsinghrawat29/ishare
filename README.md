@@ -45,6 +45,10 @@ To install and run iShare on your local machine, follow these steps:
 - MockBee for backend
 - React-icons
 - React toastify
+ 
+## Demo
+
+https://github.com/vishalsinghrawat29/ishare/assets/56162449/49c25f33-28a8-4bbc-865f-cf69254755d4
 
 ## Contact
 
