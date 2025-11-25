@@ -52,6 +52,6 @@ https://github.com/vishalsinghrawat29/ishare/assets/56162449/49c25f33-28a8-4bbc-
 
 ## Contact
 
-If you have any suggestions, questions, or feedback, please feel free to contact me at vsrawat2906@gmail.com .
+If you have any suggestions, questions, or feedback, please feel free to contact me at rawatvishal73@gmail.com .
 
 Thank you for using iShare - social media app. We wish you have a wonderful experience!
